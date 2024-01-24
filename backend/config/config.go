@@ -18,21 +18,21 @@ type Config struct {
 
 type server struct { // TODO: private type
 	Host      string
-	Port      string `env:"SERVER_PORT,required"`
+	Port      string `env:"SERVER_PORT"`
 	JwtSecret string `env:"JWT_SECRET"`
 }
 
 type Database struct { // TODO: private type
-	Host     string `env:"MONGODB_URI,required"` // TODO: rename to URI
-	Name     string `env:"MONGODB_NAME,required"`
-	Username string `env:"MONGODB_USERNAME,required"`
-	Password string `env:"MONGODB_PASSWORD,required"`
+	Host     string `env:"MONGODB_URI"` // TODO: rename to URI
+	Name     string `env:"MONGODB_NAME"`
+	Username string `env:"MONGODB_USERNAME"`
+	Password string `env:"MONGODB_PASSWORD"`
 }
 
 type GoogleOidc struct { // TODO: private type
-	ClientId     string `env:"GOOGLE_OIDC_CLIENT_ID,required"`
-	ClientSecret string `env:"GOOGLE_OIDC_CLIENT_SECRET,required"`
-	RedirectUri  string `env:"GOOGLE_OIDC_REDIRECT_URI,required"`
+	ClientId     string `env:"GOOGLE_OIDC_CLIENT_ID"`
+	ClientSecret string `env:"GOOGLE_OIDC_CLIENT_SECRET"`
+	RedirectUri  string `env:"GOOGLE_OIDC_REDIRECT_URI"`
 	IsDevMode    bool   `env:"GOOGLE_OIDC_IS_DEV_MODE"`
 }
 
@@ -80,7 +80,7 @@ func C(envPrefix ...string) Config {
 
 		srvConf := &server{}
 		if err := env.ParseWithOptions(srvConf, opts); err != nil {
-			log.Println("env.ParseWithOptions(srvConf, opts) error", err)
+			log.Fatal("env.ParseWithOptions(srvConf, opts) error", err)
 		}
 
 		h, _ := os.Hostname()
