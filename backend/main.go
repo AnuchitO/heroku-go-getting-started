@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"errors"
+	"fmt"
 	"net/http"
 	"os"
 	"os/signal"
@@ -79,12 +80,13 @@ func NewRouter(mlog *zap.Logger, cfg config.Config, db *mongo.Database) *gin.Eng
 	})
 
 	r.GET("/health", func(c *gin.Context) {
-		// 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
-		// 	defer cancel()
-		// 	if err := db.Client().Ping(ctx, nil); err != nil {
-		// 		c.InternalServerError(fmt.Errorf("api server is live: but can't connect to database: %w", err))
-		// 		return
-		// 	}
+		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+		defer cancel()
+		if err := db.Client().Ping(ctx, nil); err != nil {
+			emsg := fmt.Errorf("api server is live: but can't connect to database: %w", err)
+			c.String(http.StatusInternalServerError, emsg.Error())
+			return
+		}
 		c.String(http.StatusOK, "ariskill is ready and connected to database")
 	})
 
