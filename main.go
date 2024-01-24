@@ -19,7 +19,7 @@ func main() {
 	router.Use(gin.Logger())
 
 	router.GET("/", func(c *gin.Context) {
-		c.JSON(http.StatusOK, "new Profile : "+port)
+		c.JSON(http.StatusOK, "Hello : "+port)
 	})
 
 	router.Run(":" + port)
