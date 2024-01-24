@@ -35,8 +35,7 @@ func main() {
 	defer graceful()
 
 	db, cleanupDBFunc := database.NewMongo(cfg.Database)
-	// r := NewRouter(mlog, cfg, db)
-	r := NewRouter(nil, nil, db)
+	r := NewRouter(mlog, cfg, db)
 
 	srv := http.Server{
 		Addr:              ":" + cfg.Server.Port,
@@ -70,7 +69,7 @@ func main() {
 
 var now = time.Now().String()
 
-func NewRouter(mlog *zap.Logger, cfg *config.Config, db *mongo.Database) *gin.Engine {
+func NewRouter(mlog *zap.Logger, cfg config.Config, db *mongo.Database) *gin.Engine {
 	// r := app.NewRouter(mlog)
 	r := gin.Default()
 	port := os.Getenv("PORT")
@@ -79,15 +78,15 @@ func NewRouter(mlog *zap.Logger, cfg *config.Config, db *mongo.Database) *gin.En
 		c.JSON(http.StatusOK, msg)
 	})
 
-	// r.GET("/health", func(c app.Context) {
-	// 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
-	// 	defer cancel()
-	// 	if err := db.Client().Ping(ctx, nil); err != nil {
-	// 		c.InternalServerError(fmt.Errorf("api server is live: but can't connect to database: %w", err))
-	// 		return
-	// 	}
-	// 	c.OK("ariskill is ready and connected to database")
-	// })
+	r.GET("/health", func(c *gin.Context) {
+		// 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+		// 	defer cancel()
+		// 	if err := db.Client().Ping(ctx, nil); err != nil {
+		// 		c.InternalServerError(fmt.Errorf("api server is live: but can't connect to database: %w", err))
+		// 		return
+		// 	}
+		c.String(http.StatusOK, "ariskill is ready and connected to database")
+	})
 
 	// // packages authen
 	// authenHandler := authen.NewAuthenHandler(http.DefaultClient, cfg.GoogleOidc)
