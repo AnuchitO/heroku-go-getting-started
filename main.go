@@ -4,7 +4,6 @@ import (
 	"context"
 	"errors"
 	"log"
-	"log/slog"
 	"net/http"
 	"os"
 	"os/signal"
@@ -35,7 +34,7 @@ func main() {
 		Handler:           r,
 		ReadHeaderTimeout: 5 * time.Second,
 	}
-	slog.Info("server start at : " + srv.Addr)
+	log.Println("server start at : " + srv.Addr)
 
 	idleConnsClosed := make(chan struct{})
 
@@ -47,13 +46,13 @@ func main() {
 		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 		defer cancel()
 		if err := srv.Shutdown(ctx); err != nil {
-			slog.Info("HTTP server Shutdown: " + err.Error())
+			log.Println("HTTP server Shutdown: " + err.Error())
 		}
 		close(idleConnsClosed)
 	}()
 
 	if err := srv.ListenAndServe(); !errors.Is(err, http.ErrServerClosed) {
-		slog.Info("HTTP server ListenAndServe: " + err.Error())
+		log.Fatal("HTTP server ListenAndServe: " + err.Error())
 		return
 	}
 
