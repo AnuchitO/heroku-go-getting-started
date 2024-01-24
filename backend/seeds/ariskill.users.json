@@ -1,0 +1,609 @@
+[
+  {
+    "sub": "123456789666269492155",
+    "createdAt": "2023-09-20T08:56:56.507Z",
+    "createdBy": "system",
+    "email": "john.d@arise.tech",
+    "employeeId": "00001",
+    "familyName": "John",
+    "level":"CEO",
+    "givenName": "Doe",
+    "updatedAt": "2023-09-20T10:08:04.063Z",
+    "mySquad": [
+      {
+        "sqid": "650b248335fbcf59267fc6c7",
+        "role": "member"
+      },
+      {
+        "sqid": "650bfb051ac125739cfb773e",
+        "role": "lead"
+      }
+    ],
+    "jobRole": "fullstack engineer",
+    "squadId": [
+      {
+        "$oid": "650b248335fbcf59267fc6c7"
+      }
+    ],
+    "aboutMe": "about me",
+    "socialMedias": [""],
+    "tags": ["ref1", "ref2"],
+    "updatedBy": "115117688666269492155",
+    "technicalSkills": [
+      {
+        "skid": "64e17f43e098346113ae4f58",
+        "score": 4
+      },
+      {
+        "skid": "64e17f43e098346113ae4f55",
+        "score": 3
+      },
+      {
+        "skid": "000000000000000000000000",
+        "score": 1
+      }
+    ],
+    "softSkills": [
+      {
+        "skid": "64e17f4ae098346113ae4f5f",
+        "score": 44
+      },
+      {
+        "skid": "64e17f4ae098346113ae4f61",
+        "score": 15
+      },
+      {
+        "skid": "64e17f4ae098346113ae4f62",
+        "score": 18
+      },
+      {
+        "skid": "64e17f4ae098346113ae4f63",
+        "score": 23
+      }
+    ],
+    "hardSkills": [
+      {
+        "name": "HTML",
+        "description": "HTML is the standard markup language for creating Web pages.",
+        "currentLevel": 1,
+        "skillLevel": [
+          {
+            "level": 1,
+            "levelDescription": "description level1"
+          },
+          {
+            "level": 2,
+            "levelDescription": "description level2"
+          },
+          {
+            "level": 3,
+            "levelDescription": "description level3"
+          },
+          {
+            "level": 4,
+            "levelDescription": "description level4"
+          },
+          {
+            "level": 5,
+            "levelDescription": "description level5"
+          }
+        ],
+        "sort": 1
+      },
+      {
+        "name": "CSS",
+        "description": "CSS is a stylesheet language used for describing the look and formatting of a document written in HTML.",
+        "skillLevel": [
+          {
+            "level": 1,
+            "levelDescription": "description level1"
+          },
+          {
+            "level": 2,
+            "levelDescription": "description level2"
+          },
+          {
+            "level": 3,
+            "levelDescription": "description level3"
+          },
+          {
+            "level": 4,
+            "levelDescription": "description level4"
+          },
+          {
+            "level": 5,
+            "levelDescription": "description level5"
+          }
+        ],
+        "currentLevel": 1,
+        "sort": 2
+      }
+    ]
+  },
+  {
+    "sub": "999999999999999999991",
+    "email": "amalric.l@arise.tech",
+    "employeeId": "000002",
+    "givenName": "Amalric",
+    "familyName": "Lockwood",
+    "jobRole": "Product owner",
+    "level":"Senior",
+    "aboutMe": "I'm a first user of this app",
+    "mySquad": [
+      {
+        "sqid": "650b248335fbcf59267fc6c7",
+        "role": "member"
+      },
+      {
+        "sqid": "650bfb051ac125739cfb773e",
+        "role": "lead"
+      }
+    ],
+    "socialMedias": ["X", "Facebook", "IG"],
+    "tags": ["afaef", "data", "code"],
+    "createdBy": "system",
+    "updatedBy": "999999999999999999991",
+    "createdAt": "2023-09-20T05:58:28.551Z",
+    "updatedAt": "2023-09-20T05:58:28.551Z",
+    "softSkills": [
+      {
+        "skid": "64e17f4ae098346113ae4f66",
+        "score": 14
+      },
+      {
+        "skid": "64e17f4ae098346113ae4f5f",
+        "score": 12
+      },
+      {
+        "skid": "64e17f4ae098346113ae4f5e",
+        "score": 11
+      },
+      {
+        "skid": "64e17f4ae098346113ae4f65",
+        "score": 11
+      },
+      {
+        "skid": "64e17f4ae098346113ae4f61",
+        "score": 52
+      }
+    ],
+    "technicalSkills": [
+      {
+        "skid": "64e17f43e098346113ae4f57",
+        "score": 5
+      },
+      {
+        "skid": "64e17f43e098346113ae4f5b",
+        "score": 5
+      },
+      {
+        "skid": "64e17f43e098346113ae4f53",
+        "score": 4
+      },
+      {
+        "skid": "64e17f43e098346113ae4f5c",
+        "score": 4
+      },
+      {
+        "skid": "64e17f43e098346113ae4f54",
+        "score": 3
+      },
+      {
+        "skid": "64e17f43e098346113ae4f59",
+        "score": 3
+      },
+      {
+        "skid": "64e17f43e098346113ae4f55",
+        "score": 3
+      },
+      {
+        "skid": "64e17f43e098346113ae4f5a",
+        "score": 3
+      },
+      {
+        "skid": "64e17f43e098346113ae4f56",
+        "score": 1
+      }
+    ],
+    "hardSkills": [
+      {
+        "name": "HTML",
+        "description": "HTML is the standard markup language for creating Web pages.",
+        "currentLevel": 1,
+        "skillLevel": [
+          {
+            "level": 1,
+            "levelDescription": "description level1"
+          },
+          {
+            "level": 2,
+            "levelDescription": "description level2"
+          },
+          {
+            "level": 3,
+            "levelDescription": "description level3"
+          },
+          {
+            "level": 4,
+            "levelDescription": "description level4"
+          },
+          {
+            "level": 5,
+            "levelDescription": "description level5"
+          }
+        ],
+        "sort": 1
+      },
+      {
+        "name": "CSS",
+        "description": "CSS is a stylesheet language used for describing the look and formatting of a document written in HTML.",
+        "skillLevel": [
+          {
+            "level": 1,
+            "levelDescription": "description level1"
+          },
+          {
+            "level": 2,
+            "levelDescription": "description level2"
+          },
+          {
+            "level": 3,
+            "levelDescription": "description level3"
+          },
+          {
+            "level": 4,
+            "levelDescription": "description level4"
+          },
+          {
+            "level": 5,
+            "levelDescription": "description level5"
+          }
+        ],
+        "currentLevel": 1,
+        "sort": 2
+      }
+    ]
+  },
+  {
+    "sub": "999999999999999999992",
+    "email": "sandeep.b@arise.tech",
+    "employeeId": "000003",
+    "givenName": "Sandeep",
+    "familyName": "Bray",
+    "jobRole": "Backend engineer",
+    "level":"Junior",
+    "aboutMe": "I'm a second user of this app",
+    "mySquad": [
+      {
+        "sqid": "650b248335fbcf59267fc6c7",
+        "role": "member"
+      }
+    ],
+    "socialMedias": [],
+    "tags": [],
+    "createdBy": "system",
+    "updatedBy": "999999999999999999992",
+    "createdAt": "2023-09-20T05:58:28.551Z",
+    "updatedAt": "2023-09-20T05:58:28.551Z",
+    "softSkills": [],
+    "technicalSkills": [
+      {
+        "skid": "64e17f43e098346113ae4f57",
+        "score": 2
+      },
+      {
+        "skid": "64e17f43e098346113ae4f5b",
+        "score": 1
+      },
+      {
+        "skid": "64e17f43e098346113ae4f53",
+        "score": 3
+      },
+      {
+        "skid": "64e17f43e098346113ae4f54",
+        "score": 2
+      },
+      {
+        "skid": "64e17f43e098346113ae4f59",
+        "score": 5
+      },
+      {
+        "skid": "64e17f43e098346113ae4f55",
+        "score": 4
+      },
+      {
+        "skid": "64e17f43e098346113ae4f5a",
+        "score": 1
+      }
+    ],
+    "hardSkills": [
+      {
+        "name": "HTML",
+        "description": "HTML is the standard markup language for creating Web pages.",
+        "currentLevel": 1,
+        "skillLevel": [
+          {
+            "level": 1,
+            "levelDescription": "description level1"
+          },
+          {
+            "level": 2,
+            "levelDescription": "description level2"
+          },
+          {
+            "level": 3,
+            "levelDescription": "description level3"
+          },
+          {
+            "level": 4,
+            "levelDescription": "description level4"
+          },
+          {
+            "level": 5,
+            "levelDescription": "description level5"
+          }
+        ],
+        "sort": 1
+      },
+      {
+        "name": "CSS",
+        "description": "CSS is a stylesheet language used for describing the look and formatting of a document written in HTML.",
+        "skillLevel": [
+          {
+            "level": 1,
+            "levelDescription": "description level1"
+          },
+          {
+            "level": 2,
+            "levelDescription": "description level2"
+          },
+          {
+            "level": 3,
+            "levelDescription": "description level3"
+          },
+          {
+            "level": 4,
+            "levelDescription": "description level4"
+          },
+          {
+            "level": 5,
+            "levelDescription": "description level5"
+          }
+        ],
+        "currentLevel": 1,
+        "sort": 2
+      }
+    ]
+  },
+  {
+    "sub": "999999999999999999993",
+    "createdAt": "2023-09-20T08:56:56.507Z",
+    "createdBy": "system",
+    "email": "mark.d@arise.tech",
+    "employeeId": "00001",
+    "familyName": "John",
+    "givenName": "Doe",
+    "updatedAt": "2023-09-20T10:08:04.063Z",
+    "mySquad": [
+      {
+        "sqid": "650b248335fbcf59267fc6c7",
+        "role": "lead"
+      },
+      {
+        "sqid": "650bfb051ac125739cfb773e",
+        "role": "lead"
+      }
+    ],
+    "jobRole": "fullstack engineer",
+    "squadId": [
+      {
+        "$oid": "650b248335fbcf59267fc6c7"
+      }
+    ],
+    "aboutMe": "about me",
+    "socialMedias": [""],
+    "tags": ["ref1", "ref2"],
+    "updatedBy": "115117688666269492155",
+    "technicalSkills": [
+      {
+        "skid": "64e17f43e098346113ae4f58",
+        "score": 4
+      },
+      {
+        "skid": "64e17f43e098346113ae4f55",
+        "score": 3
+      },
+      {
+        "skid": "000000000000000000000000",
+        "score": 1
+      }
+    ],
+    "softSkills": [
+      {
+        "skid": "64e17f4ae098346113ae4f5f",
+        "score": 44
+      },
+      {
+        "skid": "64e17f4ae098346113ae4f61",
+        "score": 15
+      },
+      {
+        "skid": "64e17f4ae098346113ae4f62",
+        "score": 18
+      },
+      {
+        "skid": "64e17f4ae098346113ae4f63",
+        "score": 23
+      }
+    ],
+    "hardSkills": [
+      {
+        "name": "HTML",
+        "description": "HTML is the standard markup language for creating Web pages.",
+        "currentLevel": 1,
+        "skillLevel": [
+          {
+            "level": 1,
+            "levelDescription": "description level1"
+          },
+          {
+            "level": 2,
+            "levelDescription": "description level2"
+          },
+          {
+            "level": 3,
+            "levelDescription": "description level3"
+          },
+          {
+            "level": 4,
+            "levelDescription": "description level4"
+          },
+          {
+            "level": 5,
+            "levelDescription": "description level5"
+          }
+        ],
+        "sort": 1
+      },
+      {
+        "name": "CSS",
+        "description": "CSS is a stylesheet language used for describing the look and formatting of a document written in HTML.",
+        "skillLevel": [
+          {
+            "level": 1,
+            "levelDescription": "description level1"
+          },
+          {
+            "level": 2,
+            "levelDescription": "description level2"
+          },
+          {
+            "level": 3,
+            "levelDescription": "description level3"
+          },
+          {
+            "level": 4,
+            "levelDescription": "description level4"
+          },
+          {
+            "level": 5,
+            "levelDescription": "description level5"
+          }
+        ],
+        "currentLevel": 1,
+        "sort": 2
+      }
+    ]
+  },
+  {
+    "sub": "999999999999999999994",
+    "createdAt": "2023-09-20T08:56:56.507Z",
+    "createdBy": "system",
+    "email": "mark.d@arise.tech",
+    "employeeId": "00001",
+    "familyName": "John",
+    "givenName": "Doe",
+    "updatedAt": "2023-09-20T10:08:04.063Z",
+    "mySquad": [],
+    "jobRole": "fullstack engineer",
+    "squadId": [
+      {
+        "$oid": "650b248335fbcf59267fc6c7"
+      }
+    ],
+    "aboutMe": "about me",
+    "socialMedias": [""],
+    "tags": ["ref1", "ref2"],
+    "updatedBy": "115117688666269492155",
+    "technicalSkills": [
+      {
+        "skid": "64e17f43e098346113ae4f58",
+        "score": 4
+      },
+      {
+        "skid": "64e17f43e098346113ae4f55",
+        "score": 3
+      },
+      {
+        "skid": "000000000000000000000000",
+        "score": 1
+      }
+    ],
+    "softSkills": [
+      {
+        "skid": "64e17f4ae098346113ae4f5f",
+        "score": 44
+      },
+      {
+        "skid": "64e17f4ae098346113ae4f61",
+        "score": 15
+      },
+      {
+        "skid": "64e17f4ae098346113ae4f62",
+        "score": 18
+      },
+      {
+        "skid": "64e17f4ae098346113ae4f63",
+        "score": 23
+      }
+    ],
+    "hardSkills": [
+      {
+        "name": "HTML",
+        "description": "HTML is the standard markup language for creating Web pages.",
+        "currentLevel": 1,
+        "skillLevel": [
+          {
+            "level": 1,
+            "levelDescription": "description level1"
+          },
+          {
+            "level": 2,
+            "levelDescription": "description level2"
+          },
+          {
+            "level": 3,
+            "levelDescription": "description level3"
+          },
+          {
+            "level": 4,
+            "levelDescription": "description level4"
+          },
+          {
+            "level": 5,
+            "levelDescription": "description level5"
+          }
+        ],
+        "sort": 1
+      },
+      {
+        "name": "CSS",
+        "description": "CSS is a stylesheet language used for describing the look and formatting of a document written in HTML.",
+        "skillLevel": [
+          {
+            "level": 1,
+            "levelDescription": "description level1"
+          },
+          {
+            "level": 2,
+            "levelDescription": "description level2"
+          },
+          {
+            "level": 3,
+            "levelDescription": "description level3"
+          },
+          {
+            "level": 4,
+            "levelDescription": "description level4"
+          },
+          {
+            "level": 5,
+            "levelDescription": "description level5"
+          }
+        ],
+        "currentLevel": 1,
+        "sort": 2
+      }
+    ]
+  }
+]

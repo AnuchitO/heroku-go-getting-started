@@ -1,0 +1,1660 @@
+definitions:
+  app.Response:
+    properties:
+      data: {}
+      message:
+        type: string
+      status:
+        $ref: '#/definitions/app.status'
+    type: object
+  app.status:
+    enum:
+    - success
+    - error
+    type: string
+    x-enum-varnames:
+    - Success
+    - Fail
+  cycle.Cycle:
+    properties:
+      comment:
+        type: string
+      endDate:
+        type: string
+      id:
+        type: string
+      intuitiveSkill:
+        items:
+          $ref: '#/definitions/cycle.IntuitiveSkill'
+        type: array
+      quantitativeSkill:
+        items:
+          $ref: '#/definitions/cycle.QuantitativeSkill'
+        type: array
+      receiverMail:
+        type: string
+      senderMail:
+        type: string
+      startDate:
+        type: string
+      state:
+        type: string
+      status:
+        type: string
+    required:
+    - endDate
+    - receiverMail
+    - senderMail
+    - startDate
+    - status
+    type: object
+  cycle.CycleDisplay:
+    properties:
+      comment:
+        type: string
+      endDate:
+        type: string
+      id:
+        type: string
+      intuitiveSkill:
+        items:
+          $ref: '#/definitions/cycle.IntuitiveSkill'
+        type: array
+      quantitativeSkill:
+        items:
+          $ref: '#/definitions/cycle.QuantitativeSkillDisplay'
+        type: array
+      receiverMail:
+        type: string
+      senderMail:
+        type: string
+      startDate:
+        type: string
+      state:
+        type: string
+      status:
+        type: string
+    type: object
+  cycle.CycleInput:
+    properties:
+      comment:
+        type: string
+      endDate:
+        type: string
+      intuitiveSkill:
+        items:
+          $ref: '#/definitions/cycle.IntuitiveSkill'
+        type: array
+      quantitativeSkill:
+        description: QuantitiveSkill >= 1 skill
+        items:
+          $ref: '#/definitions/cycle.QuantitativeSkill'
+        type: array
+      receiverMail:
+        type: string
+      startDate:
+        type: string
+    required:
+    - endDate
+    - quantitativeSkill
+    - receiverMail
+    - startDate
+    type: object
+  cycle.HardSkill:
+    properties:
+      comment:
+        type: string
+      description:
+        type: string
+      goalScore:
+        type: integer
+      leadScore:
+        type: integer
+      mutualScore:
+        type: integer
+      name:
+        type: string
+      personalScore:
+        type: integer
+      skillLevels:
+        items:
+          $ref: '#/definitions/cycle.SkillLevel'
+        type: array
+    required:
+    - description
+    - goalScore
+    - name
+    - personalScore
+    - skillLevels
+    type: object
+  cycle.IntuitiveSkill:
+    properties:
+      comment:
+        type: string
+      goal:
+        type: string
+      name:
+        type: string
+      status:
+        type: string
+    required:
+    - goal
+    - name
+    type: object
+  cycle.QuantitativeSkill:
+    properties:
+      comment:
+        type: string
+      finalScore:
+        type: integer
+      goalScore:
+        type: integer
+      id:
+        type: string
+      leadGoalScore:
+        type: integer
+      personalScore:
+        type: integer
+    required:
+    - goalScore
+    - personalScore
+    type: object
+  cycle.QuantitativeSkillDisplay:
+    properties:
+      comment:
+        type: string
+      description:
+        type: string
+      finalScore:
+        type: integer
+      goalScore:
+        type: integer
+      id:
+        type: string
+      leadGoalScore:
+        type: integer
+      logo:
+        type: string
+      name:
+        type: string
+      personalScore:
+        type: integer
+    required:
+    - goalScore
+    - personalScore
+    type: object
+  cycle.SkillLevel:
+    properties:
+      level:
+        type: integer
+      levelDescription:
+        type: string
+    required:
+    - level
+    - levelDescription
+    type: object
+  cycle.UpdateGoalSkillsRequest:
+    properties:
+      hardSkills:
+        items:
+          $ref: '#/definitions/cycle.HardSkill'
+        type: array
+    required:
+    - hardSkills
+    type: object
+  membersquad.SquadMember:
+    properties:
+      include:
+        type: boolean
+      members:
+        items:
+          $ref: '#/definitions/membersquad.UserAndRole'
+        type: array
+      sqid:
+        type: string
+    type: object
+  membersquad.UserAndRole:
+    properties:
+      role:
+        type: string
+      uid:
+        type: string
+    type: object
+  profile.RateSkill:
+    properties:
+      ratings:
+        items:
+          $ref: '#/definitions/profile.Rating'
+        type: array
+      uid:
+        type: string
+    type: object
+  profile.Rating:
+    properties:
+      score:
+        type: integer
+      skid:
+        type: string
+    type: object
+  profile.Skill:
+    properties:
+      score:
+        type: integer
+      skid:
+        type: string
+    type: object
+  profile.aboutme:
+    properties:
+      aboutMe:
+        type: string
+      socialMedias:
+        items:
+          type: string
+        type: array
+      tags:
+        items:
+          type: string
+        type: array
+    type: object
+  profile.mySkillRateInSquadResponse:
+    properties:
+      createdAt:
+        type: string
+      desc:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      skills:
+        items:
+          $ref: '#/definitions/profile.Skill'
+        type: array
+    type: object
+  skill.Skill:
+    properties:
+      description:
+        type: string
+      id:
+        type: string
+      kind:
+        type: string
+      logo:
+        type: string
+      name:
+        type: string
+    type: object
+  squad.AverageSkill:
+    properties:
+      average:
+        type: number
+      skid:
+        type: string
+    type: object
+  squad.SkillRating:
+    properties:
+      score:
+        type: integer
+      uid:
+        type: string
+    type: object
+  squad.SkillRatings:
+    properties:
+      ratings:
+        items:
+          $ref: '#/definitions/squad.SkillRating'
+        type: array
+      skid:
+        type: string
+    type: object
+  squad.Squad:
+    properties:
+      createdAt:
+        type: string
+      desc:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      skillsRatings:
+        items:
+          $ref: '#/definitions/squad.SkillRatings'
+        type: array
+      teamleadMail:
+        type: string
+    type: object
+  squad.SquadAverageSkillOutput:
+    properties:
+      averagesSkill:
+        items:
+          $ref: '#/definitions/squad.AverageSkill'
+        type: array
+      squadId:
+        type: string
+    type: object
+  squad.SquadFilter:
+    properties:
+      desc:
+        type: string
+      name:
+        type: string
+    type: object
+  user.GetEmailNameResponse:
+    properties:
+      email:
+        type: string
+      name:
+        type: string
+    type: object
+  user.GetSkillByUserIDResponse:
+    properties:
+      id:
+        type: string
+      skills:
+        items:
+          $ref: '#/definitions/user.SkillNameScoreResponse'
+        type: array
+    type: object
+  user.GetUserResponse:
+    properties:
+      aboutMe:
+        type: string
+      createdAt:
+        type: string
+      createdBy:
+        type: string
+      email:
+        type: string
+      employeeId:
+        type: string
+      familyName:
+        type: string
+      givenName:
+        type: string
+      hardSkills:
+        items:
+          $ref: '#/definitions/user.MyHardSkill'
+        type: array
+      jobRole:
+        type: string
+      level:
+        type: string
+      socialMedias:
+        items:
+          type: string
+        type: array
+      softSkills:
+        items:
+          $ref: '#/definitions/user.MySkill'
+        type: array
+      squadId:
+        items:
+          $ref: '#/definitions/user.MySquad'
+        type: array
+      sub:
+        type: string
+      tags:
+        items:
+          type: string
+        type: array
+      technicalSkills:
+        items:
+          $ref: '#/definitions/user.MySkill'
+        type: array
+      updatedAt:
+        type: string
+      updatedBy:
+        type: string
+    type: object
+  user.MyHardSkill:
+    properties:
+      currentLevel:
+        type: integer
+      description:
+        type: string
+      name:
+        type: string
+      skilllevel:
+        items:
+          $ref: '#/definitions/user.SkillLevel'
+        type: array
+      sort:
+        type: integer
+    type: object
+  user.MySkill:
+    properties:
+      score:
+        type: integer
+      skid:
+        type: string
+    type: object
+  user.MySquad:
+    properties:
+      role:
+        type: string
+      sqid:
+        type: string
+    type: object
+  user.SkillLevel:
+    properties:
+      level:
+        type: integer
+      leveldescription:
+        type: string
+    type: object
+  user.SkillNameScoreResponse:
+    properties:
+      score:
+        type: integer
+      skill:
+        $ref: '#/definitions/user.SkillResponse'
+    type: object
+  user.SkillResponse:
+    properties:
+      description:
+        type: string
+      id:
+        type: string
+      kind:
+        type: string
+      logo:
+        type: string
+      name:
+        type: string
+    type: object
+info:
+  contact: {}
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: Ariskill API
+  version: "1.0"
+paths:
+  /cycles:
+    post:
+      consumes:
+      - application/json
+      description: Insert new Cycles
+      operationId: InsertOneCycle
+      parameters:
+      - description: Cycle input Object
+        in: body
+        name: reqJson
+        required: true
+        schema:
+          $ref: '#/definitions/cycle.CycleInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/cycle.CycleDisplay'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/app.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/app.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: InsertOne
+      tags:
+      - cycle
+  /cycles/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Cycles by cycles ID
+      operationId: DeleteByID
+      parameters:
+      - description: Squad ID
+        in: path
+        name: squadID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: nil
+          schema:
+            $ref: '#/definitions/app.Response'
+        "400":
+          description: invalid cycle id
+          schema:
+            $ref: '#/definitions/app.Response'
+        "404":
+          description: cycle not found
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: DeleteByID
+      tags:
+      - cycle
+    get:
+      consumes:
+      - application/json
+      description: Retrieves a cycle by its unique identifier.
+      operationId: GetOneCycleByID
+      parameters:
+      - description: Cycle ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Cycle retrieved successfully.
+          schema:
+            $ref: '#/definitions/cycle.Cycle'
+        "400":
+          description: Invalid request format or data missing.
+          schema:
+            $ref: '#/definitions/app.Response'
+        "401":
+          description: Authorization failed. Please provide a valid token.
+          schema:
+            $ref: '#/definitions/app.Response'
+        "404":
+          description: Cycle not found with the specified ID.
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: An internal server error occurred while processing the request.
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: Get a cycle by ID
+      tags:
+      - cycle
+    post:
+      consumes:
+      - application/json
+      description: Update cycle with specific ID
+      operationId: UpdateByID
+      parameters:
+      - description: Cycle input Object
+        in: body
+        name: reqJson
+        required: true
+        schema:
+          $ref: '#/definitions/cycle.Cycle'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/cycle.CycleDisplay'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/app.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/app.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: UpdateByID
+      tags:
+      - cycle
+  /cycles/email/{status}/{page}:
+    get:
+      consumes:
+      - application/json
+      description: Get Cycles by sending status and page and receiver email (in context)
+      operationId: GetAllFromReceiverEmail
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/cycle.CycleDisplay'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/app.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/app.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: GetAllFromReceiverEmail
+      tags:
+      - cycle
+  /cycles/email/user:
+    get:
+      consumes:
+      - application/json
+      description: Get Cycles by from User email (In context)
+      operationId: GetFromUserEmail
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Cycle retrieved successfully.
+          schema:
+            $ref: '#/definitions/cycle.CycleDisplay'
+        "400":
+          description: Invalid request format or data missing.
+          schema:
+            $ref: '#/definitions/app.Response'
+        "401":
+          description: Authorization failed. Please provide a valid token.
+          schema:
+            $ref: '#/definitions/app.Response'
+        "404":
+          description: Cycle not found with the specified ID.
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: An internal server error occurred while processing the request.
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: GetFromUserEmail
+      tags:
+      - cycle
+  /cycles/goal:
+    put:
+      consumes:
+      - application/json
+      description: Inserts Hard Skills into the existing cycle for the specified user.
+      operationId: UpdateHardSkillsByEmail
+      parameters:
+      - description: Hard Skills input
+        in: body
+        name: reqJson
+        required: true
+        schema:
+          $ref: '#/definitions/cycle.UpdateGoalSkillsRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/app.Response'
+        "400":
+          description: Error marshaling JSON or mismatched goal score
+          schema:
+            $ref: '#/definitions/app.Response'
+        "404":
+          description: Cycle not found
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: Update Hard Skills for a User's Active Cycle
+      tags:
+      - cycle
+  /cycles/progress/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get Cycle with status On progress
+      operationId: GetCycleProgess
+      parameters:
+      - description: Cycle Id
+        in: path
+        name: cycleId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: nil
+          schema:
+            $ref: '#/definitions/app.Response'
+        "400":
+          description: invalid cycle id
+          schema:
+            $ref: '#/definitions/app.Response'
+        "404":
+          description: cycle not found
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: GetCycleProgess
+      tags:
+      - cycle
+  /cycles/update/{id}:
+    post:
+      consumes:
+      - application/json
+      description: Update user score by Score in cycle.
+      operationId: UpdateUserFinalScore
+      parameters:
+      - description: CycleId
+        in: path
+        name: cycleId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: nil
+          schema:
+            $ref: '#/definitions/app.Response'
+        "400":
+          description: invalid cycle id
+          schema:
+            $ref: '#/definitions/app.Response'
+        "404":
+          description: cycle not found
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: UpdateUserFinalScore
+      tags:
+      - cycle
+  /member-squads/{squadID}/members:
+    delete:
+      consumes:
+      - application/json
+      description: Delete all member from squad (at least 1 member in squad)
+      operationId: DeleteMemberSquad
+      parameters:
+      - description: Squad ID
+        in: path
+        name: squadID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/app.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: DeleteMemberSquad
+      tags:
+      - membersquad
+  /member-squads/members:
+    put:
+      consumes:
+      - application/json
+      description: Add member to squad
+      operationId: AddMemberSquad
+      parameters:
+      - description: SquadMember Object
+        in: body
+        name: s
+        required: true
+        schema:
+          $ref: '#/definitions/membersquad.SquadMember'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/app.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: AddMemberSquad
+      tags:
+      - membersquad
+  /profile:
+    get:
+      consumes:
+      - application/json
+      description: Get user by id
+      operationId: GetUserByID
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user.GetUserResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/app.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/app.Response'
+        "405":
+          description: Store Error
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: GetUserByID
+      tags:
+      - profile
+    put:
+      consumes:
+      - application/json
+      description: Update user profile
+      operationId: UpdateUser
+      parameters:
+      - description: Editable object
+        in: body
+        name: reqJson
+        required: true
+        schema:
+          $ref: '#/definitions/profile.aboutme'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/app.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/app.Response'
+        "405":
+          description: Store Error
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: UpdateUser
+      tags:
+      - profile
+  /profile/skills:
+    get:
+      consumes:
+      - application/json
+      description: Get skill by user id
+      operationId: GetSkillsByUserID
+      parameters:
+      - description: Kind of skill [soft , technical]
+        in: query
+        name: kind
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user.GetSkillByUserIDResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/app.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/app.Response'
+        "405":
+          description: Store Error
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: GetSkillsByUserID
+      tags:
+      - profile
+  /profile/skills/soft:
+    post:
+      consumes:
+      - application/json
+      description: Update user soft skills
+      operationId: UpdateSoftSkills
+      parameters:
+      - description: List of user soft skills
+        in: body
+        name: req
+        required: true
+        schema:
+          items:
+            $ref: '#/definitions/profile.Skill'
+          type: array
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/app.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/app.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/app.Response'
+        "405":
+          description: Store Error
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: UpdateSoftSkills
+      tags:
+      - profile
+  /profile/skills/technical:
+    post:
+      consumes:
+      - application/json
+      description: Update user technical skills
+      operationId: UpdateTechnicalSkills
+      parameters:
+      - description: List of user technical skills
+        in: body
+        name: req
+        required: true
+        schema:
+          items:
+            $ref: '#/definitions/profile.Skill'
+          type: array
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/app.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/app.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/app.Response'
+        "405":
+          description: Store Error
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: UpdateTechnicalSkills
+      tags:
+      - profile
+  /profile/squad/{squadID}/skill-ratings:
+    get:
+      consumes:
+      - application/json
+      description: Get one squad with a user skill ratings in that squad
+      operationId: GetUserSkillRatingBySquadID
+      parameters:
+      - description: Squad ID
+        in: path
+        name: squadID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/profile.mySkillRateInSquadResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/app.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: GetUserSkillRatingBySquadID
+      tags:
+      - profile
+    post:
+      consumes:
+      - application/json
+      description: Rate every skills
+      operationId: RateSkills
+      parameters:
+      - description: Squad ID
+        in: path
+        name: squadID
+        required: true
+        type: string
+      - description: Rate Skill
+        in: body
+        name: rateSkill
+        required: true
+        schema:
+          $ref: '#/definitions/profile.RateSkill'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/squad.Squad'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/app.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: RateSkills
+      tags:
+      - profile
+  /skills:
+    get:
+      consumes:
+      - application/json
+      description: Get all skill or all of that kind of skill
+      operationId: GetSkillsByKind
+      parameters:
+      - description: Kind of skill [soft , technical]
+        in: query
+        name: kind
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/skill.Skill'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/app.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/app.Response'
+        "405":
+          description: Store Error
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: GetSkillsByKind
+      tags:
+      - skill
+  /skills/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get a skill by skill id
+      operationId: GetSkillByID
+      parameters:
+      - description: Skill ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/skill.Skill'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/app.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/app.Response'
+        "405":
+          description: Store Error
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: GetSkillByID
+      tags:
+      - skill
+  /squads:
+    get:
+      consumes:
+      - application/json
+      description: Get all squads
+      operationId: GetAll
+      parameters:
+      - description: Filter for squad
+        in: body
+        name: squadFilter
+        required: true
+        schema:
+          $ref: '#/definitions/squad.SquadFilter'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/squad.Squad'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/app.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/app.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: GetAll
+      tags:
+      - squad
+    post:
+      consumes:
+      - application/json
+      description: Create a squad
+      operationId: InsertOneByID
+      parameters:
+      - description: Squad object
+        in: body
+        name: insert
+        required: true
+        schema:
+          $ref: '#/definitions/squad.Squad'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/squad.Squad'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/app.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: InsertOneByID
+      tags:
+      - squad
+  /squads/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a squad
+      operationId: DeleteSquadByID
+      parameters:
+      - description: Squad ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/squad.Squad'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/app.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: DeleteSquadByID
+      tags:
+      - squad
+    get:
+      consumes:
+      - application/json
+      description: Get one squad by squad id
+      operationId: GetOneByID
+      parameters:
+      - description: Squad ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/squad.Squad'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/app.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: GetOneByID
+      tags:
+      - squad
+  /squads/{squadID}:
+    put:
+      consumes:
+      - application/json
+      description: Update a squad when lead edit squad data
+      operationId: UpdateOneByID
+      parameters:
+      - description: Squad ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Squad
+        in: body
+        name: squad
+        required: true
+        schema:
+          $ref: '#/definitions/squad.Squad'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/squad.Squad'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/app.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/app.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: UpdateOneByID
+      tags:
+      - squad
+  /squads/{squadID}/member-skills-avg:
+    get:
+      consumes:
+      - application/json
+      description: Calculate squad member average per skill
+      operationId: CalculateSquadMemberAveragePerSkill
+      parameters:
+      - description: Squad ID
+        in: path
+        name: squadID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/squad.SquadAverageSkillOutput'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/app.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/app.Response'
+        "404":
+          description: Not found
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: CalculateSquadMemberAveragePerSkill
+      tags:
+      - squad
+  /squads/{squadID}/skills-require-avg:
+    get:
+      consumes:
+      - application/json
+      description: Get one squad with average skill ratings
+      operationId: GetAvgSkillRatingByID
+      parameters:
+      - description: Squad ID
+        in: path
+        name: squadID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/squad.SquadAverageSkillOutput'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/app.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/app.Response'
+        "405":
+          description: Store Error
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: GetAvgSkillRatingByID
+      tags:
+      - squad
+  /users:
+    get:
+      consumes:
+      - application/json
+      description: Get user profile
+      operationId: GetAllUsers
+      parameters:
+      - description: Search name or email
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/user.GetUserResponse'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/app.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/app.Response'
+        "405":
+          description: Store Error
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: GetAllUsers
+      tags:
+      - user
+  /users/:id:
+    get:
+      consumes:
+      - application/json
+      description: Fetches all team.
+      operationId: GetMySquadThatImMemberByID
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/user.GetEmailNameResponse'
+            type: array
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: Retrieve all team name that Im member
+      tags:
+      - user
+  /users/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Fetches all HardSkill.
+      operationId: GetHardSkillsMemberByID
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/user.MyHardSkill'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/app.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/app.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: Retrieve all HardSkill
+      tags:
+      - user
+  /users/email:
+    get:
+      consumes:
+      - application/json
+      description: Fetches all users.
+      operationId: GetUsersData
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/user.GetEmailNameResponse'
+            type: array
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - BearerAuth: []
+      summary: Retrieve all users' email and name
+      tags:
+      - user
+schemes:
+- http
+- https
+securityDefinitions:
+  BearerAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

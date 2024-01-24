@@ -1,0 +1,374 @@
+[
+  {
+    "id": {
+      "$oid": "64e2e11ae95af456e00fbd00"
+    },
+    "name": "HTML",
+    "description": "description",
+    "jobRole": ["frontend", "fullstack"],
+    "sort": 0,
+    "skillLevel": [
+      {
+        "level": 1,
+        "levelDescription": "example level 1"
+      },
+      {
+        "level": 2,
+        "levelDescription": "example level 2"
+      },
+      {
+        "level": 3,
+        "levelDescription": "example level 3"
+      },
+      {
+        "level": 4,
+        "levelDescription": "example level 4"
+      },
+      {
+        "level": 5,
+        "levelDescription": "example level 5"
+      }
+    ]
+  },
+  {
+    "id": {
+      "$oid": "64e2e11ae95af456e00fbd01"
+    },
+    "name": "CSS",
+    "description": "description",
+    "jobRole": ["frontend", "fullstack"],
+    "sort": 1,
+    "skillLevel": [
+      {
+        "level": 1,
+        "levelDescription": "example level 1"
+      },
+      {
+        "level": 2,
+        "levelDescription": "example level 2"
+      },
+      {
+        "level": 3,
+        "levelDescription": "example level 3"
+      },
+      {
+        "level": 4,
+        "levelDescription": "example level 4"
+      },
+      {
+        "level": 5,
+        "levelDescription": "example level 5"
+      }
+    ]
+  },
+  {
+    "id": {
+      "$oid": "64e2e11ae95af456e00fbd02"
+    },
+    "name": "JavaScript",
+    "description": "description",
+    "jobRole": ["frontend", "fullstack"],
+    "sort": 2,
+    "skillLevel": [
+      {
+        "level": 1,
+        "levelDescription": "example level 1"
+      },
+      {
+        "level": 2,
+        "levelDescription": "example level 2"
+      },
+      {
+        "level": 3,
+        "levelDescription": "example level 3"
+      },
+      {
+        "level": 4,
+        "levelDescription": "example level 4"
+      },
+      {
+        "level": 5,
+        "levelDescription": "example level 5"
+      }
+    ]
+  },
+  {
+    "id": {
+      "$oid": "64e2e11ae95af456e00fbd03"
+    },
+    "name": "React.js",
+    "description": "description",
+    "jobRole": ["backend", "fullstack"],
+    "sort": 3,
+    "skillLevel": [
+      {
+        "level": 1,
+        "levelDescription": "example level 1"
+      },
+      {
+        "level": 2,
+        "levelDescription": "example level 2"
+      },
+      {
+        "level": 3,
+        "levelDescription": "example level 3"
+      },
+      {
+        "level": 4,
+        "levelDescription": "example level 4"
+      },
+      {
+        "level": 5,
+        "levelDescription": "example level 5"
+      }
+    ]
+  },
+  {
+    "id": {
+      "$oid": "64e2e11ae95af456e00fbd04"
+    },
+    "name": "Next.js",
+    "description": "description",
+    "jobRole": ["backend", "fullstack"],
+    "sort": 4,
+    "skillLevel": [
+      {
+        "level": 1,
+        "levelDescription": "example level 1"
+      },
+      {
+        "level": 2,
+        "levelDescription": "example level 2"
+      },
+      {
+        "level": 3,
+        "levelDescription": "example level 3"
+      },
+      {
+        "level": 4,
+        "levelDescription": "example level 4"
+      },
+      {
+        "level": 5,
+        "levelDescription": "example level 5"
+      }
+    ]
+  },
+  {
+    "id": {
+      "$oid": "64e2e11ae95af456e00fbd05"
+    },
+    "name": "Golang",
+    "description": "description",
+    "jobRole": ["backend", "fullstack"],
+    "sort": 5,
+    "skillLevel": [
+      {
+        "level": 1,
+        "levelDescription": "example level 1"
+      },
+      {
+        "level": 2,
+        "levelDescription": "example level 2"
+      },
+      {
+        "level": 3,
+        "levelDescription": "example level 3"
+      },
+      {
+        "level": 4,
+        "levelDescription": "example level 4"
+      },
+      {
+        "level": 5,
+        "levelDescription": "example level 5"
+      }
+    ]
+  },
+  {
+    "id": {
+      "$oid": "64e2e11ae95af456e00fbd06"
+    },
+    "name": "Java",
+    "description": "description",
+    "jobRole": ["backend", "fullstack"],
+    "sort": 6,
+    "skillLevel": [
+      {
+        "level": 1,
+        "levelDescription": "example level 1"
+      },
+      {
+        "level": 2,
+        "levelDescription": "example level 2"
+      },
+      {
+        "level": 3,
+        "levelDescription": "example level 3"
+      },
+      {
+        "level": 4,
+        "levelDescription": "example level 4"
+      },
+      {
+        "level": 5,
+        "levelDescription": "example level 5"
+      }
+    ]
+  },
+  {
+    "id": {
+      "$oid": "64e2e11ae95af456e00fbd07"
+    },
+    "name": "SQL",
+    "description": "description",
+    "jobRole": ["backend", "fullstack"],
+    "sort": 7,
+    "skillLevel": [
+      {
+        "level": 1,
+        "levelDescription": "example level 1"
+      },
+      {
+        "level": 2,
+        "levelDescription": "example level 2"
+      },
+      {
+        "level": 3,
+        "levelDescription": "example level 3"
+      },
+      {
+        "level": 4,
+        "levelDescription": "example level 4"
+      },
+      {
+        "level": 5,
+        "levelDescription": "example level 5"
+      }
+    ]
+  },
+  {
+    "id": {
+      "$oid": "64e2e11ae95af456e00fbd08"
+    },
+    "name": "Mongo",
+    "description": "description",
+    "jobRole": ["backend", "fullstack"],
+    "sort": 8,
+    "skillLevel": [
+      {
+        "level": 1,
+        "levelDescription": "example level 1"
+      },
+      {
+        "level": 2,
+        "levelDescription": "example level 2"
+      },
+      {
+        "level": 3,
+        "levelDescription": "example level 3"
+      },
+      {
+        "level": 4,
+        "levelDescription": "example level 4"
+      },
+      {
+        "level": 5,
+        "levelDescription": "example level 5"
+      }
+    ]
+  },
+  {
+    "id": {
+      "$oid": "64e2e11ae95af456e00fbd09"
+    },
+    "name": "Redis",
+    "description": "description",
+    "jobRole": ["backend", "fullstack"],
+    "sort": 9,
+    "skillLevel": [
+      {
+        "level": 1,
+        "levelDescription": "example level 1"
+      },
+      {
+        "level": 2,
+        "levelDescription": "example level 2"
+      },
+      {
+        "level": 3,
+        "levelDescription": "example level 3"
+      },
+      {
+        "level": 4,
+        "levelDescription": "example level 4"
+      },
+      {
+        "level": 5,
+        "levelDescription": "example level 5"
+      }
+    ]
+  },
+  {
+    "id": {
+      "$oid": "64e2e11ae95af456e00fbd10"
+    },
+    "name": "MySQL",
+    "description": "description",
+    "jobRole": ["backend", "fullstack"],
+    "sort": 10,
+    "skillLevel": [
+      {
+        "level": 1,
+        "levelDescription": "example level 1"
+      },
+      {
+        "level": 2,
+        "levelDescription": "example level 2"
+      },
+      {
+        "level": 3,
+        "levelDescription": "example level 3"
+      },
+      {
+        "level": 4,
+        "levelDescription": "example level 4"
+      },
+      {
+        "level": 5,
+        "levelDescription": "example level 5"
+      }
+    ]
+  },
+  {
+    "id": {
+      "$oid": "64e2e11ae95af456e00fbd11"
+    },
+    "name": "Kafka",
+    "description": "description",
+    "jobRole": ["backend", "fullstack"],
+    "sort": 11,
+    "skillLevel": [
+      {
+        "level": 1,
+        "levelDescription": "example level 1"
+      },
+      {
+        "level": 2,
+        "levelDescription": "example level 2"
+      },
+      {
+        "level": 3,
+        "levelDescription": "example level 3"
+      },
+      {
+        "level": 4,
+        "levelDescription": "example level 4"
+      },
+      {
+        "level": 5,
+        "levelDescription": "example level 5"
+      }
+    ]
+  }
+]

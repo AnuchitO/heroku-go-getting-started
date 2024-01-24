@@ -1,0 +1,292 @@
+[{
+  "id": {
+    "$oid": "64e17f43e098346113ae4f53"
+  },
+  "name": "HTML",
+  "description": "HTML is the standard markup language for creating Web pages.",
+  "logo": "https://www.svgrepo.com/show/452228/html-5.svg",
+  "kind": "technical",
+  "createdAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  }
+},
+{
+  "id": {
+    "$oid": "64e17f43e098346113ae4f54"
+  },
+  "name": "CSS",
+  "description": "CSS is a stylesheet language used for describing the look and formatting of a document written in HTML.",
+  "logo": "https://www.svgrepo.com/show/452185/css-3.svg",
+  "kind": "technical",
+  "createdAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  }
+},
+{
+  "id": {
+    "$oid": "64e17f43e098346113ae4f55"
+  },
+  "name": "JavaScript",
+  "description": "JavaScript is a programming language that enables interactive web pages.",
+  "logo": "https://www.svgrepo.com/show/353925/javascript.svg",
+  "kind": "technical",
+  "createdAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  }
+},
+{
+  "id": {
+    "$oid": "64e17f43e098346113ae4f56"
+  },
+  "name": "Python",
+  "description": "Python is a versatile and widely-used programming language.",
+  "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg",
+  "kind": "technical",
+  "createdAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  }
+},
+{
+  "id": {
+    "$oid": "64e17f43e098346113ae4f57"
+  },
+  "name": "Java",
+  "description": "Java is a widely-used, class-based, object-oriented programming language.",
+  "logo": "https://www.vectorlogo.zone/logos/java/java-icon.svg",
+  "kind": "technical",
+  "createdAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  }
+},
+{
+  "id": {
+    "$oid": "64e17f43e098346113ae4f58"
+  },
+  "name": "SQL",
+  "description": "SQL is used for managing and manipulating relational database systems.",
+  "logo": "https://www.svgrepo.com/show/255832/sql.svg",
+  "kind": "technical",
+  "createdAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  }
+},
+{
+  "id": {
+    "$oid": "64e17f43e098346113ae4f59"
+  },
+  "name": "C++",
+  "description": "C++ is a general-purpose programming language known for its performance and versatility.",
+  "logo": "https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg",
+  "kind": "technical",
+  "createdAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  }
+},
+{
+  "id": {
+    "$oid": "64e17f43e098346113ae4f5a"
+  },
+  "name": "Ruby on Rails",
+  "description": "Ruby on Rails is a web application framework written in Ruby language.",
+  "logo": "https://www.svgrepo.com/show/354252/rails.svg",
+  "kind": "technical",
+  "createdAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  }
+},
+{
+  "id": {
+    "$oid": "64e17f43e098346113ae4f5b"
+  },
+  "name": "PHP",
+  "description": "PHP is a server-side scripting language designed for web development.",
+  "logo": "https://www.svgrepo.com/show/452088/php.svg",
+  "kind": "technical",
+  "createdAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  }
+},
+{
+  "id": {
+    "$oid": "64e17f43e098346113ae4f5c"
+  },
+  "name": "React.js",
+  "description": "React.js is a JavaScript library used for building user interfaces.",
+  "logo": "https://www.svgrepo.com/show/493719/react-javascript-js-framework-facebook.svg",
+  "kind": "technical",
+  "createdAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  }
+},
+{
+  "id": {
+    "$oid": "64e17f4ae098346113ae4f5e"
+  },
+  "name": "Communication",
+  "description": "Effective communication involves clear expression and attentive listening.",
+  "kind": "soft",
+  "createdAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  }
+},
+{
+  "id": {
+    "$oid": "64e17f4ae098346113ae4f5f"
+  },
+  "name": "Teamwork",
+  "description": "Teamwork involves collaborating with others to achieve common goals.",
+  "kind": "soft",
+  "createdAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  }
+},
+{
+  "id": {
+    "$oid": "64e17f4ae098346113ae4f60"
+  },
+  "name": "Problem Solving",
+  "description": "Problem solving entails identifying issues and finding effective solutions.",
+  "kind": "soft",
+  "createdAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  }
+},
+{
+  "id": {
+    "$oid": "64e17f4ae098346113ae4f61"
+  },
+  "name": "Adaptability",
+  "description": "Adaptability is the ability to adjust to new situations and challenges.",
+  "kind": "soft",
+  "createdAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  }
+},
+{
+  "id": {
+    "$oid": "64e17f4ae098346113ae4f62"
+  },
+  "name": "Time Management",
+  "description": "Time management involves efficiently organizing and prioritizing tasks.",
+  "kind": "soft",
+  "createdAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  }
+},
+{
+  "id": {
+    "$oid": "64e17f4ae098346113ae4f63"
+  },
+  "name": "Leadership",
+  "description": "Leadership involves guiding and motivating a team towards achieving goals.",
+  "kind": "soft",
+  "createdAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  }
+},
+{
+  "id": {
+    "$oid": "64e17f4ae098346113ae4f64"
+  },
+  "name": "Critical Thinking",
+  "description": "Critical thinking involves evaluating situations logically and making informed decisions.",
+  "kind": "soft",
+  "createdAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  }
+},
+{
+  "id": {
+    "$oid": "64e17f4ae098346113ae4f65"
+  },
+  "name": "Creativity",
+  "description": "Creativity involves thinking outside the box and generating innovative ideas.",
+  "kind": "soft",
+  "createdAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  }
+},
+{
+  "id": {
+    "$oid": "64e17f4ae098346113ae4f66"
+  },
+  "name": "Name updated",
+  "description": "description updated",
+  "kind": "soft",
+  "createdAt": {
+    "$date": "2023-08-17T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-21T03:40:05.286Z"
+  },
+  "logo": "http://example.com"
+},
+{
+  "id": {
+    "$oid": "64e2e11ae95af456e00fbd68"
+  },
+  "name": "Name updated111",
+  "description": "description updated",
+  "logo": "http://example.com",
+  "kind": "soft",
+  "createdAt": {
+    "$date": "2023-08-21T03:59:22.714Z"
+  },
+  "updatedAt": {
+    "$date": "2023-08-21T03:59:22.714Z"
+  }
+}]

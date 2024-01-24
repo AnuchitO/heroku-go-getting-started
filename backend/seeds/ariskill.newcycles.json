@@ -1,0 +1,80 @@
+[
+    {
+        "id":"650b248335fbcf59267fc6c7",
+        "teamLeaderMail":"paritat.w@arise.tech",
+        "ariserMail" : "pallat.a@arise.tech",
+        "startDate":"2023-11-01T00:00:00.000Z",
+        "endDate":"2023-11-30T00:00:00.000Z",
+        "status":"In Progress",
+        "state":"In Progress",
+        "hardSkills": [
+            {
+                "name": "CSS",
+                "description" : "css style",
+                "personalScore": 3,
+                "goalScore": 4,
+                "mutualScore": 3,
+                "leadScore": 3,
+                "comment": "",
+                "skillLevels":[
+                    {
+                      "level": 1,
+                      "levleDescription": "string"
+                    },
+                    {
+                      "level": 2,
+                      "levleDescription": "string"
+                    },
+                    {
+                      "level": 3,
+                      "levleDescription": "string"
+                    },
+                    {
+                      "level": 4,
+                      "levleDescription": "string"
+                    },
+                    {
+                      "level": 5,
+                      "levleDescription": "string"
+                    }
+                  ]
+            }
+        ]
+    },
+    {
+        "id":"666456789666269492155127",
+        "teamLeaderMail":"paritat.w@arise.tech",
+        "ariserMail" : "amalric.l@arise.tech",
+        "startDate":"2023-11-01T00:00:00.000Z",
+        "endDate":"2023-11-30T00:00:00.000Z",
+        "status":"In Progress",
+        "state":"In Progress"
+    },
+    {
+        "id":"444456789666269492155127",
+        "teamLeaderMail":"paritat.w@arise.tech",
+        "ariserMail" : "amalric.l@arise.tech",
+        "startDate":"2023-12-01T00:00:00.000Z",
+        "endDate":"2023-12-30T00:00:00.000Z",
+        "status":"In Progress",
+        "state":"In Progress"
+    },
+    {
+        "id":"999456789666269492155127",
+        "teamLeaderMail":"paritat.w@arise.tech",
+        "ariserMail" : "amalric.l@arise.tech",
+        "startDate":"2023-09-01T00:00:00.000Z",
+        "endDate":"2023-09-30T00:00:00.000Z",
+        "status":"In Progress",
+        "state":"In Progress"
+    },
+    {
+        "id":"678456789666269492155127",
+        "teamLeaderMail":"paritat.w@arise.tech",
+        "ariserMail" : "amalric.l@arise.tech",
+        "startDate":"2023-08-01T00:00:00.000Z",
+        "endDate":"2023-08-30T00:00:00.000Z",
+        "status":"In Progress",
+        "state":"In Progress"
+    }
+]

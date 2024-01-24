@@ -1,0 +1,42 @@
+[
+    {
+
+        "email": "john.d@arise.tech",
+        "employee_id": "000001",
+        "jobrole":"Fullstack engineer",
+        "project": "Incubator",
+        "team": "Ariskill",
+        "squadId": [
+          {
+            "$oid": "650b248335fbcf59267fc6c7"
+          }
+        ]
+
+      },
+      {
+
+        "email": "amalric.l@arise.tech",
+        "employee_id": "000002",
+        "jobrole":"Product owner",
+        "project": "Incubator",
+        "team": "Ariskill",
+        "squadId": [
+          {
+            "$oid": "650b248335fbcf59267fc6c7"
+          }
+        ]
+      },
+      {
+
+        "email": "sandeep.b@arise.tech",
+        "employee_id": "000003",
+        "jobrole":"Backend engineer",
+        "project": "Incubator",
+        "team": "Ariskill",
+        "squadId": [
+          {
+            "$oid": "650b248335fbcf59267fc6c7"
+          }
+        ]
+      }
+]

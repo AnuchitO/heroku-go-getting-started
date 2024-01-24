@@ -1,0 +1,4 @@
+# recursively match every subdirectory
+log
+**/*.log
+.envrc

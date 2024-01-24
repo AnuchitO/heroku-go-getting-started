@@ -1,0 +1,11 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb-local
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${LOCAL_MONGODB_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${LOCAL_MONGODB_PASSWORD}
+      MONGO_INITDB_DATABASE: ${LOCAL_MONGODB_NAME}
