@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"errors"
-	mlog "log"
 	"net/http"
 	"os"
 	"os/signal"
@@ -16,6 +15,7 @@ import (
 
 	"gitdev.devops.krungthai.com/aster/ariskill/config"
 	"gitdev.devops.krungthai.com/aster/ariskill/database"
+	"gitdev.devops.krungthai.com/aster/ariskill/logger"
 
 	_ "gitdev.devops.krungthai.com/aster/ariskill/docs"
 )
@@ -31,8 +31,8 @@ import (
 func main() {
 	cfg := config.C(os.Getenv("ENV"))
 
-	// mlog, graceful := logger.NewZap()
-	// defer graceful()
+	mlog, graceful := logger.NewZap()
+	defer graceful()
 
 	db, cleanupDBFunc := database.NewMongo(cfg.Database)
 	// r := NewRouter(mlog, cfg, db)
@@ -43,7 +43,7 @@ func main() {
 		Handler:           r,
 		ReadHeaderTimeout: 5 * time.Second,
 	}
-	mlog.Println("server start at : " + srv.Addr)
+	mlog.Info("server start at : " + srv.Addr)
 
 	idleConnsClosed := make(chan struct{})
 
@@ -56,7 +56,7 @@ func main() {
 		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 		defer cancel()
 		if err := srv.Shutdown(ctx); err != nil {
-			mlog.Println("HTTP server Shutdown: " + err.Error())
+			mlog.Info("HTTP server Shutdown: " + err.Error())
 		}
 		close(idleConnsClosed)
 	}()
