@@ -1,4 +1,4 @@
-module github.com/heroku/go-getting-started
+module github.com/heroku/go-hello-heroku
 
 // +heroku goVersion go1.20
 go 1.20
