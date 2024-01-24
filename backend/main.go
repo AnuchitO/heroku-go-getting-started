@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"errors"
+	mlog "log"
 	"net/http"
 	"os"
 	"os/signal"
@@ -14,8 +15,6 @@ import (
 	"go.uber.org/zap"
 
 	"gitdev.devops.krungthai.com/aster/ariskill/config"
-	"gitdev.devops.krungthai.com/aster/ariskill/database"
-	"gitdev.devops.krungthai.com/aster/ariskill/logger"
 
 	_ "gitdev.devops.krungthai.com/aster/ariskill/docs"
 )
@@ -29,20 +28,21 @@ import (
 // @in							header
 // @name						Authorization
 func main() {
-	cfg := config.C(os.Getenv("ENV"))
+	// cfg := config.C(os.Getenv("ENV"))
 
-	mlog, graceful := logger.NewZap()
-	defer graceful()
+	// mlog, graceful := logger.NewZap()
+	// defer graceful()
 
-	db, cleanupDBFunc := database.NewMongo(cfg.Database)
-	r := NewRouter(mlog, cfg, db)
+	// db, cleanupDBFunc := database.NewMongo(cfg.Database)
+	// r := NewRouter(mlog, cfg, db)
+	r := NewRouter(nil, nil, nil)
 
 	srv := http.Server{
-		Addr:              ":" + cfg.Server.Port,
+		Addr:              ":" + os.Getenv("PORT"),
 		Handler:           r,
 		ReadHeaderTimeout: 5 * time.Second,
 	}
-	mlog.Info("server start at : " + srv.Addr)
+	mlog.Println("server start at : " + srv.Addr)
 
 	idleConnsClosed := make(chan struct{})
 
@@ -51,11 +51,11 @@ func main() {
 		signal.Notify(sigint, syscall.SIGINT, syscall.SIGTERM)
 		<-sigint
 
-		cleanupDBFunc()
+		// cleanupDBFunc()
 		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 		defer cancel()
 		if err := srv.Shutdown(ctx); err != nil {
-			mlog.Info("HTTP server Shutdown: " + err.Error())
+			mlog.Println("HTTP server Shutdown: " + err.Error())
 		}
 		close(idleConnsClosed)
 	}()
@@ -67,7 +67,7 @@ func main() {
 	<-idleConnsClosed
 }
 
-func NewRouter(mlog *zap.Logger, cfg config.Config, db *mongo.Database) *gin.Engine {
+func NewRouter(mlog *zap.Logger, cfg *config.Config, db *mongo.Database) *gin.Engine {
 	// r := app.NewRouter(mlog)
 	r := gin.Default()
 	port := os.Getenv("PORT")
