@@ -68,19 +68,19 @@ func C(envPrefix ...string) Config {
 			Prefix: prefix,
 		}
 
-		// dbconf := &Database{}
-		// if err := env.ParseWithOptions(dbconf, opts); err != nil {
-		// 	log.Fatal(err)
-		// }
+		dbconf := &Database{}
+		if err := env.ParseWithOptions(dbconf, opts); err != nil {
+			log.Fatal(err)
+		}
 
-		// googleOidc := &GoogleOidc{}
-		// if err := env.ParseWithOptions(googleOidc, opts); err != nil {
-		// 	log.Fatal(err)
-		// }
+		googleOidc := &GoogleOidc{}
+		if err := env.ParseWithOptions(googleOidc, opts); err != nil {
+			log.Fatal(err)
+		}
 
 		srvConf := &server{}
 		if err := env.ParseWithOptions(srvConf, opts); err != nil {
-			log.Fatal("env.ParseWithOptions(srvConf, opts) error", err)
+			log.Fatal(err)
 		}
 
 		h, _ := os.Hostname()
@@ -95,18 +95,18 @@ func C(envPrefix ...string) Config {
 				Port:      port,
 				JwtSecret: srvConf.JwtSecret,
 			},
-			// Database: Database{
-			// 	Host:     dbconf.Host,
-			// 	Name:     dbconf.Name,
-			// 	Username: dbconf.Username,
-			// 	Password: dbconf.Password,
-			// },
-			// GoogleOidc: GoogleOidc{
-			// 	ClientId:     googleOidc.ClientId,
-			// 	ClientSecret: googleOidc.ClientSecret,
-			// 	RedirectUri:  googleOidc.RedirectUri,
-			// 	IsDevMode:    googleOidc.IsDevMode,
-			// },
+			Database: Database{
+				Host:     dbconf.Host,
+				Name:     dbconf.Name,
+				Username: dbconf.Username,
+				Password: dbconf.Password,
+			},
+			GoogleOidc: GoogleOidc{
+				ClientId:     googleOidc.ClientId,
+				ClientSecret: googleOidc.ClientSecret,
+				RedirectUri:  googleOidc.RedirectUri,
+				IsDevMode:    googleOidc.IsDevMode,
+			},
 		}
 	})
 
