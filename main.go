@@ -1,9 +1,15 @@
 package main
 
 import (
+	"context"
+	"errors"
 	"log"
+	"log/slog"
 	"net/http"
 	"os"
+	"os/signal"
+	"syscall"
+	"time"
 
 	"github.com/gin-gonic/gin"
 )
@@ -15,12 +21,41 @@ func main() {
 		log.Fatal("$PORT must be set")
 	}
 
-	router := gin.New()
-	router.Use(gin.Logger())
+	r := gin.New()
+	r.Use(gin.Logger())
 
-	router.GET("/", func(c *gin.Context) {
-		c.JSON(http.StatusOK, "Hello go-hello-heroku : "+port)
+	r.GET("/", func(c *gin.Context) {
+		c.JSON(http.StatusOK, "new ListenAndServe nnnn : "+port)
 	})
 
-	router.Run(":" + port)
+	// r.Run(":" + port)
+
+	srv := http.Server{
+		Addr:              ":" + port,
+		Handler:           r,
+		ReadHeaderTimeout: 5 * time.Second,
+	}
+	slog.Info("server start at : " + srv.Addr)
+
+	idleConnsClosed := make(chan struct{})
+
+	go func() {
+		sigint := make(chan os.Signal, 1)
+		signal.Notify(sigint, syscall.SIGINT, syscall.SIGTERM)
+		<-sigint
+
+		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+		defer cancel()
+		if err := srv.Shutdown(ctx); err != nil {
+			slog.Info("HTTP server Shutdown: " + err.Error())
+		}
+		close(idleConnsClosed)
+	}()
+
+	if err := srv.ListenAndServe(); !errors.Is(err, http.ErrServerClosed) {
+		slog.Info("HTTP server ListenAndServe: " + err.Error())
+		return
+	}
+
+	<-idleConnsClosed
 }
