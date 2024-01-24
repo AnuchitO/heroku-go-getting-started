@@ -28,7 +28,7 @@ import (
 // @in							header
 // @name						Authorization
 func main() {
-	// cfg := config.C(os.Getenv("ENV"))
+	cfg := config.C(os.Getenv("ENV"))
 
 	// mlog, graceful := logger.NewZap()
 	// defer graceful()
@@ -38,7 +38,7 @@ func main() {
 	r := NewRouter(nil, nil, nil)
 
 	srv := http.Server{
-		Addr:              ":" + os.Getenv("PORT"),
+		Addr:              ":" + cfg.Server.Port,
 		Handler:           r,
 		ReadHeaderTimeout: 5 * time.Second,
 	}
