@@ -80,7 +80,7 @@ func C(envPrefix ...string) Config {
 
 		srvConf := &server{}
 		if err := env.ParseWithOptions(srvConf, opts); err != nil {
-			log.Fatal(err)
+			log.Println("env.ParseWithOptions(srvConf, opts) error", err)
 		}
 
 		h, _ := os.Hostname()
