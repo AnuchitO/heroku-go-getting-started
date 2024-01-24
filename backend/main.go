@@ -72,7 +72,7 @@ func NewRouter(mlog *zap.Logger, cfg *config.Config, db *mongo.Database) *gin.En
 	r := gin.Default()
 	port := os.Getenv("PORT")
 	r.GET("/", func(c *gin.Context) {
-		c.JSON(http.StatusOK, "inside backend folder : "+port+" "+os.Getenv("ENV")+" "+os.Getenv("DEV_MONGODB_URI"))
+		c.JSON(http.StatusOK, "comment config : "+port+" "+os.Getenv("ENV")+" "+os.Getenv("DEV_MONGODB_URI"))
 	})
 
 	// r.GET("/health", func(c app.Context) {
