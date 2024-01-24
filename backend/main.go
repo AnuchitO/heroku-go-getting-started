@@ -68,12 +68,14 @@ func main() {
 	<-idleConnsClosed
 }
 
+var now = time.Now().String()
+
 func NewRouter(mlog *zap.Logger, cfg *config.Config, db *mongo.Database) *gin.Engine {
 	// r := app.NewRouter(mlog)
 	r := gin.Default()
 	port := os.Getenv("PORT")
 	r.GET("/", func(c *gin.Context) {
-		msg := "comment config : " + port + " " + os.Getenv("ENV") + " " + os.Getenv("DEV_MONGODB_URI") + " " + time.Now().String()
+		msg := "comment config : " + port + " " + os.Getenv("ENV") + " " + os.Getenv("DEV_MONGODB_URI") + " " + now
 		c.JSON(http.StatusOK, msg)
 	})
 
