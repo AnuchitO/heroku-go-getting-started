@@ -7,15 +7,15 @@ import (
 	"testing"
 
 	"gitdev.devops.krungthai.com/aster/ariskill/app"
-	"gitdev.devops.krungthai.com/aster/ariskill/app/user"
+	"gitdev.devops.krungthai.com/aster/ariskill/app/profile"
 	"gitdev.devops.krungthai.com/aster/ariskill/config"
 	"github.com/gin-gonic/gin"
 )
 
 func TestValidateGoogleIdToken(t *testing.T) {
 	t.Run("set profileID, email and role into context", func(t *testing.T) {
-		var fakeUserStorageFunc = func(ctx context.Context, email string) (*user.User, error) {
-			return &user.User{
+		var fakeUserStorageFunc = func(ctx context.Context, email string) (*profile.User, error) {
+			return &profile.User{
 				JobRole: "fullstack",
 			}, nil
 		}
@@ -34,17 +34,17 @@ func TestValidateGoogleIdToken(t *testing.T) {
 		expectedContextEmail := "amalric.l@arise.tech"
 		expectedRole := "fullstack"
 
-		if profileID, ok := ctx.Get(contextProfileID); ok {
+		if profileID, ok := ctx.Get(ContextProfileID); ok {
 			if expectedContextProfileID != profileID {
 				t.Errorf("in case of everythings is ok, expect profileID is %q but get %v\n", expectedContextProfileID, profileID)
 			}
 		}
-		if email, ok := ctx.Get(contextEmail); ok {
+		if email, ok := ctx.Get(ContextEmail); ok {
 			if expectedContextEmail != email {
 				t.Errorf("in case of everythings is ok, expect email is %q but get %v\n", expectedContextEmail, email)
 			}
 		}
-		if role, ok := ctx.Get(contextRole); ok {
+		if role, ok := ctx.Get(ContextRole); ok {
 			if expectedRole != role {
 				t.Errorf("in case of everythings is ok, expect role is %q but get %v\n", expectedRole, role)
 			}

@@ -201,8 +201,15 @@ func (ms *mockCycleStorage) ToNewUserDetailFormat(cy *NewCycle) (*NewCycleWithUs
 		Status:         cy.Status,
 		Comment:        cy.Comment,
 	}
-
 	return cycle, nil
+}
+
+func (ms *mockCycleStorage) UpdateHardSkillsByEmail(ctx context.Context, email string, goalSkillRequest UpdateGoalSkillsRequest) (*NewCycle, error) {
+	panic("not Implement")
+}
+
+func (ms *mockCycleStorage) GetLatestCycleFromUserEmail(email string) (*NewCycle, error) {
+	panic("not Implement")
 }
 
 // TODO : Uncomment to Test add hardSkills a Cycle to project
@@ -210,8 +217,7 @@ func (ms *mockCycleStorage) ToNewUserDetailFormat(cy *NewCycle) (*NewCycleWithUs
 type mockNewCycleStorage struct {
 	newCycle *NewCycle
 	user     user.User
-
-	err error
+	err      error
 }
 
 func (ms *mockNewCycleStorage) UpdateByID(id string, updateCycle Cycle) error {
@@ -254,12 +260,7 @@ func (ms *mockNewCycleStorage) UpdateHardSkillsByEmail(ctx context.Context, emai
 	ms.newCycle.HardSkills = goalSkillRequest.HardSkills
 	return ms.newCycle, nil
 }
-func (ms *mockCycleStorage) UpdateHardSkillsByEmail(ctx context.Context, email string, goalSkillRequest UpdateGoalSkillsRequest) (*NewCycle, error) {
-	panic("not Implement")
-}
-func (ms *mockCycleStorage) GetLatestCycleFromUserEmail(email string) (*NewCycle, error) {
-	panic("not Implement")
-}
+
 func (ms *mockNewCycleStorage) GetLatestCycleFromUserEmail(email string) (*NewCycle, error) {
 	if ms.err != nil {
 		return nil, ms.err

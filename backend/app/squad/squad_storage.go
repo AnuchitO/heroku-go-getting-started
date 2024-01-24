@@ -4,6 +4,7 @@ import (
 	"context"
 	"time"
 
+	"gitdev.devops.krungthai.com/aster/ariskill/app/user"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -154,4 +155,26 @@ func (s *storage) DeleteByID(id string) error {
 	}
 
 	return nil
+}
+
+const userCollection = "users"
+
+func (s *storage) GetAllBySquadId(ctx context.Context, squadId primitive.ObjectID) ([]user.User, error) {
+	filter := bson.M{"my_squad": bson.M{"$elemMatch": bson.M{"sqid": squadId}}}
+
+	res, err := s.db.Collection(userCollection).Find(ctx, filter)
+	if err != nil {
+		return nil, err
+	}
+
+	var users []user.User
+	if err := res.All(ctx, &users); err != nil {
+		return nil, err
+	}
+
+	if len(users) < 1 {
+		return nil, mongo.ErrNoDocuments
+	}
+
+	return users, nil
 }

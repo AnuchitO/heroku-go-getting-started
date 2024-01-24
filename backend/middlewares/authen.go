@@ -9,6 +9,7 @@ import (
 	"time"
 
 	"gitdev.devops.krungthai.com/aster/ariskill/app"
+	"gitdev.devops.krungthai.com/aster/ariskill/app/profile"
 	"gitdev.devops.krungthai.com/aster/ariskill/app/user"
 	authen "gitdev.devops.krungthai.com/aster/ariskill/authen"
 	"gitdev.devops.krungthai.com/aster/ariskill/config"
@@ -31,12 +32,12 @@ const (
 	ERROR_WRONG_DOMAIN             = "Only @arise.tech email is allowed"
 )
 
-type userStorageFunc func(ctx context.Context, email string) (*user.User, error)
+type userStorageFunc func(ctx context.Context, email string) (*profile.User, error)
 
 const (
-	contextProfileID = "profileID"
-	contextEmail     = "email"
-	contextRole      = "role"
+	ContextProfileID = "profileID"
+	ContextEmail     = "email"
+	ContextRole      = "role"
 )
 
 func ValidateGoogleIdToken(userStorage userStorageFunc, googleOidc config.GoogleOidc, clock app.Clock) gin.HandlerFunc {
@@ -95,9 +96,9 @@ func ValidateGoogleIdToken(userStorage userStorageFunc, googleOidc config.Google
 			return
 		}
 
-		c.Set(contextProfileID, currentUser.ID)
-		c.Set(contextEmail, currentUser.Email)
-		c.Set(contextRole, user.JobRole)
+		c.Set(ContextProfileID, currentUser.ID)
+		c.Set(ContextEmail, currentUser.Email)
+		c.Set(ContextRole, user.JobRole)
 
 		c.Next()
 	}

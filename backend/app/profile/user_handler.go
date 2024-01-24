@@ -1,6 +1,7 @@
 package profile
 
 import (
+	"context"
 	"errors"
 
 	"gitdev.devops.krungthai.com/aster/ariskill/app"
@@ -9,6 +10,7 @@ import (
 
 type UserStorage interface {
 	AboutMeUpdate(id string, about aboutme) error
+	GetAll(ctx context.Context) ([]User, error)
 }
 
 type userHandler struct {
@@ -52,4 +54,34 @@ func (h *userHandler) UpdateAboutMe(c app.Context) {
 		return
 	}
 	c.OK(nil)
+}
+
+// GetUserData godoc
+//
+//	@summary		Retrieve all users' email and name
+//	@description	Fetches all users.
+//	@tags			user
+//	@id				GetUsersData
+//	@security		BearerAuth
+//	@accept			json
+//	@produce		json
+//	@response		200	{object}	[]GetEmailNameResponse	"OK"
+//	@response		401	{object}	app.Response			"Unauthorized"
+//	@response		500	{object}	app.Response			"Internal Server Error"
+//	@router			/users/email [get]
+func (u *userHandler) GetUsersData(c app.Context) {
+	allUsers, err := u.storage.GetAll(c.Ctx())
+	if err != nil {
+		c.InternalServerError(err)
+		return
+	}
+
+	var userResponses []GetEmailNameResponse
+	for _, user := range allUsers {
+		userResponses = append(userResponses, GetEmailNameResponse{
+			Email: user.Email,
+			Name:  user.FirstName + " " + user.LastName,
+		})
+	}
+	c.OK(userResponses)
 }

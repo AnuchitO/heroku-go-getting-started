@@ -49,8 +49,6 @@ func convertIdToObjectId(id string) (*primitive.ObjectID, error) {
 
 // UpdateCycleByID implements Storage.
 func (s *storage) UpdateByID(id string, updateCycle Cycle) error {
-	cycle := covertCycleDisplayToCycle(CycleDisplay{})
-	_ = cycle
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 	objId, _ := primitive.ObjectIDFromHex(id)
@@ -65,8 +63,6 @@ func (s *storage) UpdateByID(id string, updateCycle Cycle) error {
 }
 
 func (s *storage) UpdateByIDSave(id string, updateCycle CycleSave) error {
-	cycle := covertCycleDisplayToCycle(CycleDisplay{})
-	_ = cycle
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 	objId, _ := primitive.ObjectIDFromHex(id)
@@ -406,35 +402,7 @@ func getAllSkillFromCycle(db *mongo.Database, c context.Context, id [][]string) 
 	return allSkill, nil
 }
 
-func covertCycleDisplayToCycle(cycleDisplay CycleDisplay) Cycle {
-	quantitiveSK := []QuantitativeSkill{}
-	for _, val := range cycleDisplay.QuantitativeSkill {
-		skill := QuantitativeSkill{
-			ID:            val.ID,
-			PersonalScore: val.PersonalScore,
-			GoalScore:     val.GoalScore,
-			FinalScore:    val.FinalScore,
-			Comment:       val.Comment,
-		}
-		quantitiveSK = append(quantitiveSK, skill)
-	}
-	cycles := Cycle{
-		ID:                cycleDisplay.ID,
-		SenderMail:        cycleDisplay.SenderMail,
-		ReceiverMail:      cycleDisplay.ReceiverMail,
-		StartDate:         cycleDisplay.StartDate,
-		EndDate:           cycleDisplay.EndDate,
-		QuantitativeSkill: quantitiveSK,
-		IntuitiveSkill:    cycleDisplay.IntuitiveSkill,
-		Status:            cycleDisplay.Status,
-		Comment:           cycleDisplay.Comment,
-	}
-	return cycles
-}
-
 func (s *storage) GetUserDetailWithEmail(cycles []*CycleDisplay) []*CycleWithUserDetail {
-	// fmt.Println("cycle:")
-	// fmt.Println(cycles[1])
 	arrEmail := []string{}
 	for _, val := range cycles {
 		arrEmail = append(arrEmail, val.SenderMail)
@@ -706,8 +674,8 @@ func (s *storage) UpdateHardSkillsByEmail(ctx context.Context, email string, goa
 	}
 
 	cycles.HardSkills = goalSkillRequest.HardSkills
-	cycles.Status = "Pending"
-	cycles.State = "Review"
+	cycles.Status = StatusPending
+	cycles.State = StateReview
 
 	filter := bson.M{"_id": primitive.ObjectID(cycles.ID)}
 

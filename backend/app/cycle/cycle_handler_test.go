@@ -1007,21 +1007,12 @@ func TestGetLatestCycleFromUserEmail(t *testing.T) {
 	}{
 		{
 			name:             "Return http status 200 and latest cycle by email when email is input",
-			reqBody:          "test.a@ariser.tech",
 			expectedStatus:   200,
 			expectedResponse: fmt.Sprintf(`{"status":"success","message":"","data":{"id":"%v","teamLeaderMail":"test.t@arise.tech","ariserMail":"test.a@ariser.tech","comment":"","startDate":"%v","endDate":"%v", "state":"","status":"In Progress","hardSkills":null}}`, idHex, formattedStartTime, formattedEndTime),
 			storageError:     nil,
 		},
 		{
-			name:             "Return http status 400 when has space after path",
-			reqBody:          " ",
-			expectedStatus:   400,
-			expectedResponse: `{"message":"email is required", "status":"error"}`,
-			storageError:     mongo.ErrNoDocuments,
-		},
-		{
 			name:             "Return http status 400 when no document found",
-			reqBody:          "test.a@ariser.tech",
 			expectedStatus:   400,
 			expectedResponse: `{"message":"no documents in result", "status":"error"}`,
 			storageError:     mongo.ErrNoDocuments,
@@ -1046,18 +1037,17 @@ func TestGetLatestCycleFromUserEmail(t *testing.T) {
 
 			mockHandler := NewCycleHandler(mockStorage)
 			engine := gin.New()
-
-			engine.GET("/cycles/email/lastest/:email", app.NewGinHandler(
+			engine.GET("/cycles/email/lastest", app.NewGinHandler(
 				mockHandler.GetLatestCycleFromUserEmail, zap.NewNop(),
 			))
 			rec := httptest.NewRecorder()
 
-			req, _ := http.NewRequest(http.MethodGet, "/cycles/email/lastest/"+v.reqBody, nil)
+			req, _ := http.NewRequest(http.MethodGet, "/cycles/email/lastest", nil)
+
 			engine.ServeHTTP(rec, req)
 
 			actual := rec.Body.String()
-			// log.Printf("actual:%v\n", actual)
-			// log.Printf("expect:%v", v.expectedResponse)
+
 			assert.Equal(t, v.expectedStatus, rec.Code)
 			assert.JSONEq(t, v.expectedResponse, actual)
 		})

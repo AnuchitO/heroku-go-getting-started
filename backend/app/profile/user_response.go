@@ -1,9 +1,7 @@
-package user
+package profile
 
 import (
 	"time"
-
-	"gitdev.devops.krungthai.com/aster/ariskill/app/skill"
 )
 
 type GetUserResponse struct {
@@ -32,24 +30,6 @@ type GetEmailNameResponse struct {
 	Name  string `json:"name"`
 }
 
-type GetSkillByUserIDResponse struct {
-	UserID string                   `json:"id"`
-	Skills []SkillNameScoreResponse `json:"skills"`
-}
-
-type SkillNameScoreResponse struct {
-	SkillInfo SkillResponse `json:"skill"`
-	Score     int           `json:"score"`
-}
-
-type SkillResponse struct {
-	ID          string `json:"id"`
-	Name        string `json:"name"`
-	Description string `json:"description"`
-	Logo        string `json:"logo"`
-	Kind        string `json:"kind"`
-}
-
 type MyHardSkillResponse struct {
 	Name         string       `json:"name"`
 	Description  string       `json:"description"`
@@ -65,31 +45,4 @@ type SkillLevelResponse struct {
 
 func NewGetUserResponse(u User) GetUserResponse {
 	return GetUserResponse(u)
-}
-
-func NewSkillByUserResponse(s *SkillsByUser) GetSkillByUserIDResponse {
-	return GetSkillByUserIDResponse{
-		UserID: s.UserID,
-		Skills: NewSkillNameScoreResponse(s.Skills),
-	}
-}
-
-func NewSkillNameScoreResponse(skill []SkillNameScore) []SkillNameScoreResponse {
-	var skills []SkillNameScoreResponse
-	for _, s := range skill {
-		skills = append(skills, SkillNameScoreResponse{
-			Score:     s.Score,
-			SkillInfo: NewSkillResponse(s.SkillInfo),
-		})
-	}
-	return skills
-}
-
-func NewSkillResponse(s skill.Skill) SkillResponse {
-	return SkillResponse{
-		ID:          s.ID.Hex(),
-		Name:        s.Name,
-		Description: s.Description,
-		Logo:        s.Logo,
-	}
 }

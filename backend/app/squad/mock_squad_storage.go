@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"testing"
 
+	"gitdev.devops.krungthai.com/aster/ariskill/app/user"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
@@ -11,6 +12,7 @@ type mockSquadStorage struct {
 	squad         []*Squad
 	methodsToCall map[string]bool
 	err           error
+	users         []user.User
 }
 
 type mockingObjectId struct {

@@ -2,6 +2,7 @@ package profile
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -30,6 +31,13 @@ func (ms *mockUserStorage) AboutMeUpdate(id string, about aboutme) error {
 		return mongo.ErrNoDocuments
 	}
 	return nil
+}
+
+func (m *mockUserStorage) GetAll(ctx context.Context) ([]User, error) {
+	if m.err != nil {
+		return nil, m.err
+	}
+	return []User{}, nil
 }
 
 func TestUpdateAboutMe(t *testing.T) {

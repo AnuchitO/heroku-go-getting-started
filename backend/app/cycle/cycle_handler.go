@@ -4,7 +4,6 @@ import (
 	"context"
 	"fmt"
 	"strconv"
-	"strings"
 	"time"
 
 	"gitdev.devops.krungthai.com/aster/ariskill/app"
@@ -29,7 +28,7 @@ type Storage interface {
 	GetLatestCycleFromUserEmail(email string) (*NewCycle, error)
 	UpdateHardSkillsByEmail(ctx context.Context, email string, goalSkillRequest UpdateGoalSkillsRequest) (*NewCycle, error)
 	// UpdateByEmail(email string, updateCycle UpdateGoalSkillsRequest) error
-	// 	GetFromUserEmailNewCycle(email string) (*NewCycle, error)
+	// GetFromUserEmailNewCycle(email string) (*NewCycle, error)
 }
 
 type cycleHandler struct {
@@ -253,20 +252,20 @@ func (cy *cycleHandler) GetAllFromUserEmail(c app.Context) {
 	c.OK(cy.storage.ToDisplayFormatAll(res))
 }
 
-//	@summary		Get a cycle by ID
-//	@description	Retrieves a cycle by its unique identifier.
-//	@tags			cycle
-//	@id				GetOneCycleByID
-//	@security		BearerAuth
-//	@accept			json
-//	@produce		json
-//	@param			id	path		string			true	"Cycle ID"
-//	@response		200	{object}	cycle.Cycle		"Cycle retrieved successfully."
-//	@response		400	{object}	app.Response	"Invalid request format or data missing."
-//	@response		401	{object}	app.Response	"Authorization failed. Please provide a valid token."
-//	@response		404	{object}	app.Response	"Cycle not found with the specified ID."
-//	@response		500	{object}	app.Response	"An internal server error occurred while processing the request."
-//	@router			/cycles/{id} [get]
+// @summary		Get a cycle by ID
+// @description	Retrieves a cycle by its unique identifier.
+// @tags			cycle
+// @id				GetOneCycleByID
+// @security		BearerAuth
+// @accept			json
+// @produce		json
+// @param			id	path		string			true	"Cycle ID"
+// @response		200	{object}	cycle.Cycle		"Cycle retrieved successfully."
+// @response		400	{object}	app.Response	"Invalid request format or data missing."
+// @response		401	{object}	app.Response	"Authorization failed. Please provide a valid token."
+// @response		404	{object}	app.Response	"Cycle not found with the specified ID."
+// @response		500	{object}	app.Response	"An internal server error occurred while processing the request."
+// @router			/cycles/{id} [get]
 func (h *cycleHandler) GetOneByID(c app.Context) {
 	id := c.Param("id")
 	res, err := h.storage.GetNewByID(id)
@@ -443,13 +442,8 @@ func (cy *cycleHandler) UpdateHardSkillsByEmail(c app.Context) {
 
 // GetLatestCycleFromEmail
 func (cy *cycleHandler) GetLatestCycleFromUserEmail(c app.Context) {
-	email := c.Param("email")
-	sEmail := strings.TrimSpace(email)
-	if len(sEmail) == 0 {
-		fmt.Println("no email")
-		c.BadRequest(fmt.Errorf("email is required"))
-		return
-	}
+	email := c.GetString("email")
+
 	cycle, err := cy.storage.GetLatestCycleFromUserEmail(email)
 	if err != nil {
 		if err == mongo.ErrNoDocuments {

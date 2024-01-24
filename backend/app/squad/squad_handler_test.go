@@ -46,8 +46,7 @@ func TestSquadHandlerGetAll(t *testing.T) {
 			},
 		}
 		mockStorage.ExpectToCall("GetAll")
-		mockUserStorage := &mockUserStorage{}
-		handler := NewSquadHandler(mockStorage, mockUserStorage)
+		handler := NewSquadHandler(mockStorage)
 
 		engine := gin.New()
 		engine.GET("/squads", app.NewGinHandler(handler.GetAll, zap.NewNop()))
@@ -91,8 +90,7 @@ func TestSquadHandlerGetAll(t *testing.T) {
 			err:   squadNotFoundError,
 		}
 		mockStorage.ExpectToCall("GetAll")
-		mockUserStorage := &mockUserStorage{}
-		handler := NewSquadHandler(mockStorage, mockUserStorage)
+		handler := NewSquadHandler(mockStorage)
 
 		engine := gin.New()
 		engine.GET("/squads", app.NewGinHandler(handler.GetAll, zap.NewNop()))
@@ -140,8 +138,7 @@ func TestSquadHandlerGetAll(t *testing.T) {
 
 		mockStorage := &mockSquadStorage{squad: mockSquad}
 		mockStorage.ExpectToCall("GetByFilter")
-		mockUserStorage := &mockUserStorage{}
-		handler := NewSquadHandler(mockStorage, mockUserStorage)
+		handler := NewSquadHandler(mockStorage)
 
 		engine := gin.New()
 		engine.GET("/squads", app.NewGinHandler(handler.GetAll, zap.NewNop()))
@@ -175,8 +172,7 @@ func TestSquadHandlerGetAll(t *testing.T) {
 	t.Run("should return 404 when filtered squads is empty", func(t *testing.T) {
 		mockStorage := &mockSquadStorage{squad: nil, err: squadNotFoundError}
 		mockStorage.ExpectToCall("GetByFilter")
-		mockUserStorage := &mockUserStorage{}
-		handler := NewSquadHandler(mockStorage, mockUserStorage)
+		handler := NewSquadHandler(mockStorage)
 
 		engine := gin.New()
 		engine.GET("/squads", app.NewGinHandler(handler.GetAll, zap.NewNop()))
@@ -215,8 +211,7 @@ func TestSquadHandlerGetOneByID(t *testing.T) {
 			err: nil,
 		}
 		mockStorage.ExpectToCall("GetOneByID")
-		mockUserStorage := &mockUserStorage{}
-		handler := NewSquadHandler(mockStorage, mockUserStorage)
+		handler := NewSquadHandler(mockStorage)
 
 		engine := gin.New()
 		engine.GET("/squads/:squadID", app.NewGinHandler(handler.GetOneByID, zap.NewNop()))
@@ -249,8 +244,7 @@ func TestSquadHandlerGetOneByID(t *testing.T) {
 			err: invalidIdError,
 		}
 		mockStorage.ExpectToCall("GetOneByID")
-		mockUserStorage := &mockUserStorage{}
-		handler := NewSquadHandler(mockStorage, mockUserStorage)
+		handler := NewSquadHandler(mockStorage)
 
 		engine := gin.New()
 		engine.GET("/squads/:squadID", app.NewGinHandler(handler.GetOneByID, zap.NewNop()))
@@ -275,8 +269,7 @@ func TestSquadHandlerGetOneByID(t *testing.T) {
 			err: squadNotFoundError,
 		}
 		mockStorage.ExpectToCall("GetOneByID")
-		mockUserStorage := &mockUserStorage{}
-		handler := NewSquadHandler(mockStorage, mockUserStorage)
+		handler := NewSquadHandler(mockStorage)
 
 		engine := gin.New()
 		engine.GET("/squads/:squadID", app.NewGinHandler(handler.GetOneByID, zap.NewNop()))
@@ -301,8 +294,7 @@ func TestSquadHandlerGetOneByID(t *testing.T) {
 			err: errors.New("error from storage"),
 		}
 		mockStorage.ExpectToCall("GetOneByID")
-		mockUserStorage := &mockUserStorage{}
-		handler := NewSquadHandler(mockStorage, mockUserStorage)
+		handler := NewSquadHandler(mockStorage)
 
 		engine := gin.New()
 		engine.GET("/squads/:squadID", app.NewGinHandler(handler.GetOneByID, zap.NewNop()))
@@ -413,8 +405,7 @@ func TestSquadHandlerInsertOne(t *testing.T) {
 			err: nil,
 		}
 		mockStorage.ExpectToCall("InsertOne")
-		mockUserStorage := &mockUserStorage{}
-		handler := NewSquadHandler(mockStorage, mockUserStorage)
+		handler := NewSquadHandler(mockStorage)
 
 		engine := gin.New()
 		engine.POST("/squads", app.NewGinHandler(handler.InsertOneByID, zap.NewNop()))
@@ -474,8 +465,7 @@ func TestSquadHandlerInsertOne(t *testing.T) {
 
 		mockStorage := &mockSquadStorage{}
 		mockStorage.ExpectToCall("InsertOne")
-		mockUserStorage := &mockUserStorage{}
-		handler := NewSquadHandler(mockStorage, mockUserStorage)
+		handler := NewSquadHandler(mockStorage)
 
 		engine := gin.New()
 		engine.POST("/squads", app.NewGinHandler(handler.InsertOneByID, zap.NewNop()))
@@ -512,8 +502,7 @@ func TestSquadHandlerInsertOne(t *testing.T) {
 
 		mockStorage := &mockSquadStorage{}
 		mockStorage.ExpectToCall("InsertOne")
-		mockUserStorage := &mockUserStorage{}
-		handler := NewSquadHandler(mockStorage, mockUserStorage)
+		handler := NewSquadHandler(mockStorage)
 
 		engine := gin.New()
 		engine.POST("/squads", app.NewGinHandler(handler.InsertOneByID, zap.NewNop()))
@@ -561,8 +550,7 @@ func TestSquadHandlerInsertOne(t *testing.T) {
 			err: errors.New("error from storage"),
 		}
 		mockStorage.ExpectToCall("InsertOne")
-		mockUserStorage := &mockUserStorage{}
-		handler := NewSquadHandler(mockStorage, mockUserStorage)
+		handler := NewSquadHandler(mockStorage)
 
 		engine := gin.New()
 		engine.POST("/squads", app.NewGinHandler(handler.InsertOneByID, zap.NewNop()))
@@ -630,8 +618,7 @@ func TestSquadHandlerInsertOne(t *testing.T) {
 			err: errors.New("error from storage"),
 		}
 		mockStorage.ExpectToCall("InsertOneByID")
-		mockUserStorage := &mockUserStorage{}
-		handler := NewSquadHandler(mockStorage, mockUserStorage)
+		handler := NewSquadHandler(mockStorage)
 
 		engine := gin.New()
 		engine.POST("/squads", app.NewGinHandler(handler.InsertOneByID, zap.NewNop()))
@@ -659,8 +646,7 @@ func TestSquadHandlerDeleteByID(t *testing.T) {
 			err: nil,
 		}
 		mockStorage.ExpectToCall("DeleteByID")
-		mockUserStorage := &mockUserStorage{}
-		handler := NewSquadHandler(mockStorage, mockUserStorage)
+		handler := NewSquadHandler(mockStorage)
 
 		engine := gin.New()
 		engine.DELETE("/squad/:squadID", app.NewGinHandler(handler.DeleteByID, zap.NewNop()))
@@ -685,8 +671,7 @@ func TestSquadHandlerDeleteByID(t *testing.T) {
 			err: invalidIdError,
 		}
 		mockStorage.ExpectToCall("DeleteByID")
-		mockUserStorage := &mockUserStorage{}
-		handler := NewSquadHandler(mockStorage, mockUserStorage)
+		handler := NewSquadHandler(mockStorage)
 
 		engine := gin.New()
 		engine.DELETE("/squad/:squadID", app.NewGinHandler(handler.DeleteByID, zap.NewNop()))
@@ -711,8 +696,7 @@ func TestSquadHandlerDeleteByID(t *testing.T) {
 			err: squadNotFoundError,
 		}
 		mockStorage.ExpectToCall("DeleteByID")
-		mockUserStorage := &mockUserStorage{}
-		handler := NewSquadHandler(mockStorage, mockUserStorage)
+		handler := NewSquadHandler(mockStorage)
 
 		engine := gin.New()
 		engine.DELETE("/squad/:squadID", app.NewGinHandler(handler.DeleteByID, zap.NewNop()))
@@ -737,8 +721,7 @@ func TestSquadHandlerDeleteByID(t *testing.T) {
 			err: errors.New("error from storage"),
 		}
 		mockStorage.ExpectToCall("DeleteByID")
-		mockUserStorage := &mockUserStorage{}
-		handler := NewSquadHandler(mockStorage, mockUserStorage)
+		handler := NewSquadHandler(mockStorage)
 
 		engine := gin.New()
 		engine.DELETE("/squad/:squadID", app.NewGinHandler(handler.DeleteByID, zap.NewNop()))
@@ -813,8 +796,7 @@ func TestSquadHandlerGetAvgSkillRatingByID(t *testing.T) {
 			err: nil,
 		}
 		mockStorage.ExpectToCall("GetOneByID")
-		mockUserStorage := &mockUserStorage{}
-		handler := NewSquadHandler(mockStorage, mockUserStorage)
+		handler := NewSquadHandler(mockStorage)
 
 		engine := gin.New()
 		engine.GET("/squads/:squadID/skills-require-avg", app.NewGinHandler(handler.GetAvgSkillRatingByID, zap.NewNop()))
@@ -857,8 +839,7 @@ func TestSquadHandlerGetAvgSkillRatingByID(t *testing.T) {
 			err: invalidIdError,
 		}
 		mockStorage.ExpectToCall("GetOneByID")
-		mockUserStorage := &mockUserStorage{}
-		handler := NewSquadHandler(mockStorage, mockUserStorage)
+		handler := NewSquadHandler(mockStorage)
 
 		engine := gin.New()
 		engine.GET("/squads/:squadID/skills-require-avg", app.NewGinHandler(handler.GetAvgSkillRatingByID, zap.NewNop()))
@@ -883,8 +864,7 @@ func TestSquadHandlerGetAvgSkillRatingByID(t *testing.T) {
 			err: squadNotFoundError,
 		}
 		mockStorage.ExpectToCall("GetOneByID")
-		mockUserStorage := &mockUserStorage{}
-		handler := NewSquadHandler(mockStorage, mockUserStorage)
+		handler := NewSquadHandler(mockStorage)
 
 		engine := gin.New()
 		engine.GET("/squads/:squadID/skills-require-avg", app.NewGinHandler(handler.GetAvgSkillRatingByID, zap.NewNop()))
@@ -909,8 +889,7 @@ func TestSquadHandlerGetAvgSkillRatingByID(t *testing.T) {
 			err: errors.New("error from storage"),
 		}
 		mockStorage.ExpectToCall("GetOneByID")
-		mockUserStorage := &mockUserStorage{}
-		handler := NewSquadHandler(mockStorage, mockUserStorage)
+		handler := NewSquadHandler(mockStorage)
 
 		engine := gin.New()
 		engine.GET("/squads/:squadID/skills-require-avg", app.NewGinHandler(handler.GetAvgSkillRatingByID, zap.NewNop()))
@@ -1015,63 +994,61 @@ func TestSquadHandlerCalculateSquadMemberAveragePerSkill(t *testing.T) {
 		}
 		mockStorage.ExpectToCall("GetOneByID")
 
-		mockUserStorage := &mockUserStorage{
-			users: []user.User{
-				{
-					ID: string(userIds[0]),
-					TechnicalSkill: []user.MySkill{
-						{
-							SkillID: skillIds[0].objectId,
-							Score:   usersSkillScores[0][0],
-						},
-						{
-							SkillID: skillIds[1].objectId,
-							Score:   usersSkillScores[0][1],
-						},
-						{
-							SkillID: skillIds[2].objectId,
-							Score:   usersSkillScores[0][2],
-						},
+		mockStorage.users = []user.User{
+			{
+				ID: string(userIds[0]),
+				TechnicalSkill: []user.MySkill{
+					{
+						SkillID: skillIds[0].objectId,
+						Score:   usersSkillScores[0][0],
+					},
+					{
+						SkillID: skillIds[1].objectId,
+						Score:   usersSkillScores[0][1],
+					},
+					{
+						SkillID: skillIds[2].objectId,
+						Score:   usersSkillScores[0][2],
 					},
 				},
-				{
-					ID: string(userIds[1]),
-					TechnicalSkill: []user.MySkill{
-						{
-							SkillID: skillIds[0].objectId,
-							Score:   usersSkillScores[1][0],
-						},
-						{
-							SkillID: skillIds[1].objectId,
-							Score:   usersSkillScores[1][1],
-						},
-						{
-							SkillID: skillIds[2].objectId,
-							Score:   usersSkillScores[1][2],
-						},
+			},
+			{
+				ID: string(userIds[1]),
+				TechnicalSkill: []user.MySkill{
+					{
+						SkillID: skillIds[0].objectId,
+						Score:   usersSkillScores[1][0],
+					},
+					{
+						SkillID: skillIds[1].objectId,
+						Score:   usersSkillScores[1][1],
+					},
+					{
+						SkillID: skillIds[2].objectId,
+						Score:   usersSkillScores[1][2],
 					},
 				},
-				{
-					ID: string(userIds[2]),
-					TechnicalSkill: []user.MySkill{
-						{
-							SkillID: skillIds[0].objectId,
-							Score:   usersSkillScores[2][0],
-						},
-						{
-							SkillID: skillIds[1].objectId,
-							Score:   usersSkillScores[2][1],
-						},
-						{
-							SkillID: skillIds[2].objectId,
-							Score:   usersSkillScores[2][2],
-						},
+			},
+			{
+				ID: string(userIds[2]),
+				TechnicalSkill: []user.MySkill{
+					{
+						SkillID: skillIds[0].objectId,
+						Score:   usersSkillScores[2][0],
+					},
+					{
+						SkillID: skillIds[1].objectId,
+						Score:   usersSkillScores[2][1],
+					},
+					{
+						SkillID: skillIds[2].objectId,
+						Score:   usersSkillScores[2][2],
 					},
 				},
 			},
 		}
-		mockUserStorage.ExpectToCall("GetAllBySquadId")
-		handler := NewSquadHandler(mockStorage, mockUserStorage)
+		mockStorage.ExpectToCall("GetAllBySquadId")
+		handler := NewSquadHandler(mockStorage)
 
 		engine := gin.New()
 		engine.GET("/squads/:squadID/member-skills-avg", app.NewGinHandler(handler.CalculateSquadMemberAveragePerSkill, zap.NewNop()))
@@ -1104,8 +1081,8 @@ func TestSquadHandlerCalculateSquadMemberAveragePerSkill(t *testing.T) {
 
 		assert.Equal(t, 200, rec.Code)
 		assert.JSONEq(t, want, resp)
+
 		mockStorage.Verify(t)
-		mockUserStorage.Verify(t)
 	})
 }
 
@@ -1126,8 +1103,7 @@ func TestSquadHandlerUpdateOneByID(t *testing.T) {
 		}
 		mockStorage.ExpectToCall("GetOneByID")
 		mockStorage.ExpectToCall("UpdateOneByID")
-		mockUserStorage := &mockUserStorage{}
-		handler := NewSquadHandler(mockStorage, mockUserStorage)
+		handler := NewSquadHandler(mockStorage)
 
 		engine := gin.New()
 		engine.PUT("/squads/:squadID", app.NewGinHandler(handler.UpdateOneByID, zap.NewNop()))
@@ -1173,8 +1149,7 @@ func TestSquadHandlerUpdateOneByID(t *testing.T) {
 		}
 		mockStorage.ExpectToCall("GetOneByID")
 
-		mockUserStorage := &mockUserStorage{}
-		handler := NewSquadHandler(mockStorage, mockUserStorage)
+		handler := NewSquadHandler(mockStorage)
 
 		engine := gin.New()
 		engine.PUT("/squads/:squadID", app.NewGinHandler(handler.UpdateOneByID, zap.NewNop()))
@@ -1201,8 +1176,7 @@ func TestSquadHandlerUpdateOneByID(t *testing.T) {
 		}
 		mockStorage.ExpectToCall("GetOneByID")
 
-		mockUserStorage := &mockUserStorage{}
-		handler := NewSquadHandler(mockStorage, mockUserStorage)
+		handler := NewSquadHandler(mockStorage)
 
 		engine := gin.New()
 		engine.PUT("/squads/:squadID", app.NewGinHandler(handler.UpdateOneByID, zap.NewNop()))

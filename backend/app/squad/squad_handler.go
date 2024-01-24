@@ -18,23 +18,18 @@ type squadStorageInterface interface {
 	GetOneByID(id string) (*Squad, error)
 	UpdateOneByID(id string, updatedSquad Squad) (*Squad, error)
 	DeleteByID(id string) error
-}
-
-type memberStorageInterface interface {
 	GetAllBySquadId(context context.Context, squadId primitive.ObjectID) ([]user.User, error)
 }
 
 type regexFilter map[string]map[string]primitive.Regex
 
 type squadHandler struct {
-	storage       squadStorageInterface
-	memberStorage memberStorageInterface
+	storage squadStorageInterface
 }
 
-func NewSquadHandler(storage squadStorageInterface, memberStorage memberStorageInterface) *squadHandler {
+func NewSquadHandler(storage squadStorageInterface) *squadHandler {
 	return &squadHandler{
-		storage:       storage,
-		memberStorage: memberStorage,
+		storage: storage,
 	}
 }
 
@@ -341,7 +336,7 @@ func (handler *squadHandler) CalculateSquadMemberAveragePerSkill(c app.Context) 
 		c.InternalServerError(err)
 		return
 	}
-	users, err := handler.memberStorage.GetAllBySquadId(context.Background(), res.Id)
+	users, err := handler.storage.GetAllBySquadId(context.Background(), res.Id)
 	if err != nil {
 		if err == mongo.ErrNoDocuments {
 			c.NotFound(squadMemberNotFoundError)

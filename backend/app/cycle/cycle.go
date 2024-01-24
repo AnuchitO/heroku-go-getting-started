@@ -14,6 +14,10 @@ const (
 	StatusDone     = "Done"
 )
 
+const (
+	StateReview = "Review"
+)
+
 type Cycle struct {
 	ID                primitive.ObjectID  `json:"id,omitempty" bson:"_id,omitempty"`
 	SenderMail        string              `json:"senderMail" bson:"sender_mail" binding:"required"`

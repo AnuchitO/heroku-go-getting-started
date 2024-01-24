@@ -1,0 +1,67 @@
+[
+  {
+    "sub": "123456789666269492155",
+    "email": "john.d@arise.tech",
+    "employeeId": "00001",
+    "firstName": "John",
+    "lastName": "Doe",
+    "jobRole": "fullstack",
+    "level":"Senior",
+    "aboutMe": "about me",
+    "socialMedias": [""],
+    "tags": ["ref1", "ref2"],
+    "createdAt": "2023-09-20T08:56:56.507Z",
+    "updatedAt": "2023-09-20T10:08:04.063Z",
+    "createdBy": "system",
+    "updatedBy": "115117688666269492155"
+  },
+  {
+    "sub": "999999999999999999991",
+    "email": "amalric.l@arise.tech",
+    "employeeId": "000002",
+    "firstName": "Amalric",
+    "lastName": "Lockwood",
+    "jobRole": "Product owner",
+    "level":"Senior",
+    "aboutMe": "I'm a first user of this app",
+    "socialMedias": ["X", "Facebook", "IG"],
+    "tags": ["afaef", "data", "code"],
+    "createdAt": "2023-09-20T05:58:28.551Z",
+    "updatedAt": "2023-09-20T05:58:28.551Z",
+    "createdBy": "system",
+    "updatedBy": "999999999999999999991"
+
+  },
+  {
+    "sub": "999999999999999999992",
+    "email": "sandeep.b@arise.tech",
+    "employeeId": "000003",
+    "firstName": "Sandeep",
+    "lastName": "Bray",
+    "jobRole": "backend",
+    "level":"Junior",
+    "aboutMe": "I'm a second user of this app",
+    "socialMedias": [],
+    "tags": [],
+    "createdAt": "2023-09-20T05:58:28.551Z",
+    "updatedAt": "2023-09-20T05:58:28.551Z",
+    "createdBy": "system",
+    "updatedBy": "999999999999999999992"
+  },
+  {
+    "sub": "999999999999999999993",
+    "email": "mark.d@arise.tech",
+    "employeeId": "00001",
+    "firstName": "John",
+    "lastName": "Doe",
+    "jobRole": "fullstack",
+    "level":"associate",
+    "aboutMe": "about me",
+    "socialMedias": [""],
+    "tags": ["ref1", "ref2"],
+    "createdAt": "2023-09-20T08:56:56.507Z",
+    "updatedAt": "2023-09-20T10:08:04.063Z",
+    "createdBy": "system",
+    "updatedBy": "115117688666269492155"
+  }
+]

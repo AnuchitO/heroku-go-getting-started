@@ -196,3 +196,39 @@ func ProjectStage(set SkillQuerySet) bson.M {
 		},
 	}
 }
+
+func (s *storage) GetAll(ctx context.Context) ([]User, error) {
+	query := bson.M{}
+	result, err := s.db.Collection(userCollection).Find(ctx, query, options.Find())
+	if err != nil {
+		return nil, err
+	}
+
+	var results []User
+	if err = result.All(ctx, &results); err != nil {
+		return nil, err
+	}
+	return results, nil
+}
+
+type UserStorageError struct {
+	message string
+}
+
+func (e UserStorageError) Error() string {
+	return e.message
+}
+
+var UserNotFoundError = UserStorageError{message: "user not found"}
+
+func (s *storage) GetOneByEmail(ctx context.Context, email string) (*User, error) {
+	filter := bson.M{"email": email}
+	var user User
+
+	err := s.db.Collection(userCollection).FindOne(ctx, filter).Decode(&user)
+	if err != nil {
+		return nil, UserNotFoundError
+	}
+
+	return &user, nil
+}
