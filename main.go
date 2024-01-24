@@ -24,7 +24,7 @@ func main() {
 	r.Use(gin.Logger())
 
 	r.GET("/", func(c *gin.Context) {
-		c.JSON(http.StatusOK, "new ListenAndServe nnnn : "+port)
+		c.JSON(http.StatusOK, "new ListenAndServe heroku, Procfile from them : "+port)
 	})
 
 	// r.Run(":" + port)

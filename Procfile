@@ -1,1 +1,1 @@
-web: go-hello-heroku
+web: ariskill
