@@ -15,6 +15,7 @@ import (
 	"go.uber.org/zap"
 
 	"gitdev.devops.krungthai.com/aster/ariskill/config"
+	"gitdev.devops.krungthai.com/aster/ariskill/database"
 
 	_ "gitdev.devops.krungthai.com/aster/ariskill/docs"
 )
@@ -33,9 +34,9 @@ func main() {
 	// mlog, graceful := logger.NewZap()
 	// defer graceful()
 
-	// db, cleanupDBFunc := database.NewMongo(cfg.Database)
+	db, cleanupDBFunc := database.NewMongo(cfg.Database)
 	// r := NewRouter(mlog, cfg, db)
-	r := NewRouter(nil, nil, nil)
+	r := NewRouter(nil, nil, db)
 
 	srv := http.Server{
 		Addr:              ":" + cfg.Server.Port,
@@ -51,7 +52,7 @@ func main() {
 		signal.Notify(sigint, syscall.SIGINT, syscall.SIGTERM)
 		<-sigint
 
-		// cleanupDBFunc()
+		cleanupDBFunc()
 		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 		defer cancel()
 		if err := srv.Shutdown(ctx); err != nil {
@@ -72,7 +73,8 @@ func NewRouter(mlog *zap.Logger, cfg *config.Config, db *mongo.Database) *gin.En
 	r := gin.Default()
 	port := os.Getenv("PORT")
 	r.GET("/", func(c *gin.Context) {
-		c.JSON(http.StatusOK, "comment config : "+port+" "+os.Getenv("ENV")+" "+os.Getenv("DEV_MONGODB_URI"))
+		msg := "comment config : " + port + " " + os.Getenv("ENV") + " " + os.Getenv("DEV_MONGODB_URI") + " " + time.Now().String()
+		c.JSON(http.StatusOK, msg)
 	})
 
 	// r.GET("/health", func(c app.Context) {
