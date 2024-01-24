@@ -9,10 +9,10 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.uber.org/zap"
 
-	"gitdev.devops.krungthai.com/aster/ariskill/app"
 	"gitdev.devops.krungthai.com/aster/ariskill/config"
 	"gitdev.devops.krungthai.com/aster/ariskill/database"
 	"gitdev.devops.krungthai.com/aster/ariskill/logger"
@@ -67,10 +67,11 @@ func main() {
 	<-idleConnsClosed
 }
 
-func NewRouter(mlog *zap.Logger, cfg config.Config, db *mongo.Database) *app.Router {
-	r := app.NewRouter(mlog)
+func NewRouter(mlog *zap.Logger, cfg config.Config, db *mongo.Database) *gin.Engine {
+	// r := app.NewRouter(mlog)
+	r := gin.Default()
 	port := os.Getenv("PORT")
-	r.GET("/", func(c app.Context) {
+	r.GET("/", func(c *gin.Context) {
 		c.JSON(http.StatusOK, "inside backend folder : "+port+" "+os.Getenv("ENV")+" "+os.Getenv("DEV_MONGODB_URI"))
 	})
 
