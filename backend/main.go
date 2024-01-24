@@ -10,10 +10,10 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.uber.org/zap"
 
+	"gitdev.devops.krungthai.com/aster/ariskill/app"
 	"gitdev.devops.krungthai.com/aster/ariskill/config"
 	"gitdev.devops.krungthai.com/aster/ariskill/database"
 	"gitdev.devops.krungthai.com/aster/ariskill/logger"
@@ -70,24 +70,24 @@ func main() {
 
 var now = time.Now().String()
 
-func NewRouter(mlog *zap.Logger, cfg config.Config, db *mongo.Database) *gin.Engine {
-	// r := app.NewRouter(mlog)
-	r := gin.Default()
+func NewRouter(mlog *zap.Logger, cfg config.Config, db *mongo.Database) *app.Router {
+	r := app.NewRouter(mlog)
+	// r := gin.Default()
 	port := os.Getenv("PORT")
-	r.GET("/", func(c *gin.Context) {
+	r.GET("/", func(c app.Context) {
 		msg := "comment config : " + port + " " + os.Getenv("ENV") + " " + os.Getenv("DEV_MONGODB_URI") + " " + now
 		c.JSON(http.StatusOK, msg)
 	})
 
-	r.GET("/health", func(c *gin.Context) {
+	r.GET("/health", func(c app.Context) {
 		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 		defer cancel()
 		if err := db.Client().Ping(ctx, nil); err != nil {
 			emsg := fmt.Errorf("api server is live: but can't connect to database: %w", err)
-			c.String(http.StatusInternalServerError, emsg.Error())
+			c.InternalServerError(emsg)
 			return
 		}
-		c.String(http.StatusOK, "ariskill is ready and connected to database")
+		c.OK("ariskill is ready and connected to database.....")
 	})
 
 	// // packages authen
