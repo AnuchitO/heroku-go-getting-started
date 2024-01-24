@@ -1,1 +1,1 @@
-web: go-getting-started
+web: ENV=DEV go run main.go
