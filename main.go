@@ -24,7 +24,7 @@ func main() {
 	r.Use(gin.Logger())
 
 	r.GET("/", func(c *gin.Context) {
-		c.JSON(http.StatusOK, "new ListenAndServe it still work : "+port+os.Getenv("ENV")+" "+os.Getenv("DEV_MONGODB_URI"))
+		c.JSON(http.StatusOK, "it still work?? : "+port+" "+os.Getenv("ENV")+" "+os.Getenv("DEV_MONGODB_URI"))
 	})
 
 	// r.Run(":" + port)
